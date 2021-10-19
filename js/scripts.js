@@ -17,7 +17,10 @@ alert(time);
 const shouldStuddy = confirm("Do you want know JS?");
 console.log(shouldStuddy);
 
-const period = prompt('How many times You need?');
+// const period = prompt('How many times You need?');
+
+let period = prompt('how mane times You need?');
+period = Number(period);
 
 console.log(period);
 console.log(typeof period)
