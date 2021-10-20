@@ -131,5 +131,107 @@ console.log(messageFromGuestSecond);
 
 
 
+// normalization method toLowerCase()
+// first method
+
+// const inputBrand = 'AmaZon';
+// const normalizedBrand = inputBrand.toLowerCase();
+// console.log(normalizedBrand);
+
+// second method
+let inputBrand = 'AmaZon';
+inputBrand = inputBrand.toLowerCase();
+console.log(inputBrand);
+
+
+// change only one or few symbol 
+
+let newBrand = prompt('Please write MicSOFT');
+newBrand = newBrand[0] + newBrand.slice(1).toLowerCase();
+console.log(newBrand)
+
+
+
+
+// research in string method includes()
+const spamWord1 = 'spam';
+const spamWord2 = 'sale';
+
+const letter1 = 'Hello my name is Jeff, its not spam, i want to tell you my password';
+const letter2 = 'Its last SALE on Amazon. We have big discount for You';
+const letter3 = 'This one of the bad letter';
+
+console.log(letter1.toLowerCase().includes(spamWord1));
+console.log(letter1.toLowerCase().includes(spamWord2));
+
+console.log(letter2.toLowerCase().includes(spamWord1));
+console.log(letter2.toLowerCase().includes(spamWord2));
+
+// not short
+const normalizedLetter3 = letter3.toLocaleLowerCase();
+console.log(normalizedLetter3.includes(spamWord1));
+
+console.log(letter3.toLowerCase().includes(spamWord2));
+
+
+// ?????????
+// const br = 'aMARTop';
+// br = br[0].toUpperCase + br.slice(1).toLowerCase();
+// console.log(br);
+
+
+
+// operator =,<,>
+
+console.log(15 > 4);
+
+// transform to number
+
+console.log('3' < 90);
+
+// operators == and ===  != and !==
+
+const isEqual = 5 == 5;
+const n2 = '2' == 2;
+const n3 = '0' == 0;
+
+
+
+// logical operators
+console.log(Boolean(5));
+
+// only false
+// 0, NaN, null, undefined, false "" ''
+
+
+// operator &&
+
+// work to value false
+// comeback value before false
+
+
+console.log(9 && "good" && 56 && true && 77 && 'hello');// full
+
+console.log(77 && false && 88 && 'good'); // only false
+
+
+
+// operator or ||
+// work to value true
+// comeback value before true
+
+console.log(0 || false || 89 || 'good');
+
+console.log(45 || true || null || 76 || false);
+
+
+// operator negative  !
+
+console.log(!false);
+console.log(!true);
+
+
+
+
 
 
