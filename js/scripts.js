@@ -232,6 +232,74 @@ console.log(!true);
 
 
 
+// operator if
+
+// if () {
+//     // body
+// }
+
+if (9000 > 70) {
+    console.log('We input true if')
+};
+
+if (null) {
+    console.log('This part not vision becos if - false')
+};
+
+
+// oerator if....else
+
+// work if
+if (10 > 1) {
+    console.log('x > y')
+} else {
+    console.log('x < y')
+};
+
+// work else
+if (0 > 1) {
+    console.log('x > y')
+} else {
+    console.log('x < y')
+};
+
+
+// operator else...if
+
+const salary = 1000;
+
+if (salary < 500) {
+    console.log('first stage')
+} else if (salary > 500 && salary < 800) {
+    console.log('second stage')
+} else if (salary > 1000 || salary === 1000) { // this approve
+    console.log('You Best Worker')
+} else {
+    console.log('Its not impossible')
+};
+
+
+
+// ternarny operator  - use only for two variants true or false
+
+const balance = 1000;
+// let sms;
+
+// if (balance >= 0) {
+//     sms = 'positive balance'
+// } else {
+//     sms = 'negative balance'
+// };
+
+const sms = balance >= 0 ? 'positive balance' : 'negative balance';
+console.log(sms);
+
+
+
+
+
+
+
 
 
 
