@@ -296,7 +296,11 @@ console.log(sms);
 
 
 
-
+const productName = "Repair droid";
+console.log(productName.slice(0, 4)); // "Repa"
+console.log(productName.slice(3, 9)); // "air dr"
+console.log(productName.slice(0, productName.length)); // "Repair droid"
+console.log(productName.slice(7, productName.length)); // "droid"
 
 
 
