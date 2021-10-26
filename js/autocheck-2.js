@@ -257,14 +257,26 @@ console.log(allClients);
 
 // =============================================================================================
 
-function makeArray(firstArray, secondArray, maxLength) {
-    // Change code below this line
-  let totalArray
-totalArray.slice(0, maxLength) = firstArray.concat(secondArray);
-return totalArray;
+// function makeArray(firstArray, secondArray, maxLength) {
+//     // Change code below this line
+//   let totalArray
+// totalArray.slice(0, maxLength) = firstArray.concat(secondArray);
+// return totalArray;
 
-    // Change code above this line
-}
+//     // Change code above this line
+// }
+
+function makeArray(firstArray, secondArray, maxLength) {
+  let totalArray = firstArray.concat(secondArray);
+  
+  if (totalArray.length > maxLength) {
+    console.log(totalArray);
+  return totalArray.slice(0, maxLength);
+  }
+  console.log(totalArray);
+return totalArray
+    
+  }
   
 makeArray(["Mango", "Poly"], ["Ajax", "Chelsea"], 3) //возвращает ["Mango", "Poly", "Ajax"]
 makeArray(["Mango", "Poly", "Houston"], ["Ajax", "Chelsea"], 4) //возвращает ["Mango", "Poly", "Houston", "Ajax"]
@@ -272,3 +284,38 @@ makeArray(["Mango"], ["Ajax", "Chelsea", "Poly", "Houston"], 3) //возвращ
 makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus"], 2) //возвращает ["Earth", "Jupiter"]
 makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus"], 4) //возвращает ["Earth", "Jupiter", "Neptune", "Uranus"]
 makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus", "Venus"], 0) //возвращает []
+
+// =============================================================================================
+//cycle for
+
+const start = 3;
+const end = 7;
+
+for (let i = start; i <= end; i += 1) { // Change this line
+  console.log(i);
+}
+
+// ==============================================================================================
+
+function calculateTotal(number) {
+  
+  let total = 0;
+  
+for (let i = 1; i <= number; i += 1) {
+  total += i;
+  }
+  console.log(total);
+  return total;
+  
+  
+}
+
+
+calculateTotal(1) //возвращает 1
+calculateTotal(3) //возвращает 6
+calculateTotal(7) //возвращает 28
+calculateTotal(18) //возвращает 171
+calculateTotal(24) //возвращает 300
+calculateTotal()
+// ===============================================================================================
+
