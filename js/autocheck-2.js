@@ -255,3 +255,20 @@ const newClients = ['Peach', 'Houston'];
 const allClients = oldClients.concat(newClients); // Change this line
 console.log(allClients);
 
+// =============================================================================================
+
+function makeArray(firstArray, secondArray, maxLength) {
+    // Change code below this line
+  let totalArray
+totalArray.slice(0, maxLength) = firstArray.concat(secondArray);
+return totalArray;
+
+    // Change code above this line
+}
+  
+makeArray(["Mango", "Poly"], ["Ajax", "Chelsea"], 3) //возвращает ["Mango", "Poly", "Ajax"]
+makeArray(["Mango", "Poly", "Houston"], ["Ajax", "Chelsea"], 4) //возвращает ["Mango", "Poly", "Houston", "Ajax"]
+makeArray(["Mango"], ["Ajax", "Chelsea", "Poly", "Houston"], 3) //возвращает ["Mango", "Ajax", "Chelsea"]
+makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus"], 2) //возвращает ["Earth", "Jupiter"]
+makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus"], 4) //возвращает ["Earth", "Jupiter", "Neptune", "Uranus"]
+makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus", "Venus"], 0) //возвращает []
