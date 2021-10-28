@@ -345,3 +345,14 @@ calculateTotalPrice([412, 371, 94, 63, 176]) //возвращает 1116
 
 // =========================================!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!====================
 
+const clients = ["Mango", "Ajax", "Poly"];
+
+for (const client of clients) {
+  console.log(client);
+}
+
+const string = "javascript";
+
+for (const character of string) {
+  console.log(character);
+}
