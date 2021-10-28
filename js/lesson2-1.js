@@ -158,18 +158,92 @@ console.log(broline);
 
 const jsLine = "JavaScript";
 const jsLetters = jsLine.split('');
-let invertLetter = "";
+let invertLetter = '';
 
 console.log(jsLetters);
 
 for (const letter of jsLetters) {
-    if (letter === letter.toLowerCase()) {
-        console.log("lowercase", letter);
-        invertLetter += letter.toUpperCase();
-    } else {
-        console.log("apper case", letter);
-        invertLetter += letter.toLowerCase();
-    }
+    // if (letter === letter.toLowerCase()) {
+    //     console.log("lowercase", letter);
+    //     invertLetter += letter.toUpperCase();
+    // } else {
+    //     console.log("apper case", letter);
+    //     invertLetter += letter.toLowerCase();
+    // }
+
+    invertLetter +=
+        letter === letter.toLowerCase()
+            ? letter.toUpperCase()
+            : letter.toLowerCase();
 
 }
 console.log(invertLetter);
+// ==============================================================================
+
+const title = 'We not have expirience but we want and try learn JS';
+const titleLower = title.toLowerCase();
+const titleArray = titleLower.split(' ')
+console.log(titleArray)
+const slug = titleArray.join('-');
+console.log(slug);
+
+const slugOptima = title.toLowerCase().split(' ').join('-');
+console.log(slugOptima);
+
+//===============================================================================
+
+
+const arrayI = [50, 67, 43, 22, 40];
+const arrayII = [12, 5, 90, 6];
+let totalArrays = 0;
+
+// bad variant
+for (let i = 0; i < arrayI.length; i += 1){
+    totalArrays += arrayI[i];
+}
+
+for (let i = 0; i < arrayII.length; i += 1){
+    totalArrays += arrayII[i];
+}
+
+console.log(totalArrays);
+
+//  good variation!!!!!!!!!!!!!!!!!
+const doubleArray = arrayI.concat(arrayII);
+console.log(doubleArray);
+for (const numb of doubleArray) {
+    totalArrays += numb;
+}
+console.log(totalArrays);
+
+// ==========================================================================
+
+const cataloge = [
+    'card 1 - books',
+    'card 2 - cars',
+    'card 3 - planets',
+    'card 4 - flats',
+    'card 5 - animals'
+];
+console.table(cataloge);
+
+const cardToRemove = 'card 3 - planets';
+const indexOfCard = cataloge.indexOf(cardToRemove);
+console.log(indexOfCard);
+
+//delete card
+cataloge.splice(indexOfCard, 1);
+console.table(cataloge);
+
+// add card
+const newCard = 'card 6 - fruits';
+const newCardII = 'card 7 - country';
+cataloge.splice(3, 0, newCard, newCardII);
+console.table(cataloge);
+
+//replace card
+
+const replaceCard = 'card 8 - planes';
+cataloge.splice(0, 1, replaceCard);
+console.table(cataloge);
+// ===================================================================================
