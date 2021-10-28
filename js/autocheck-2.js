@@ -356,3 +356,26 @@ const string = "javascript";
 for (const character of string) {
   console.log(character);
 }
+
+// ===============================================================================================
+
+function findLongestWord(string) {
+  
+  const array = string.split(' ');
+  console.log(array);
+  let longgestWors = array[0];
+  for (const word of array) {
+    if (longgestWors.length < word.length) {
+      longgestWors = word;
+    }
+  }
+  console.log(longgestWors);
+  return longgestWors;
+}
+findLongestWord("The quick brown fox jumped over the lazy dog") //возвращает jumped
+findLongestWord("Google do a roll") //возвращает Google
+findLongestWord("May the force be with you") //возвращает force
+
+// ==================================================================================================
+
+
