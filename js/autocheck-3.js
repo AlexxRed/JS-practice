@@ -485,3 +485,22 @@ const valuesII = Object.values(apartmentVII);
 
 // ====================================task_16==========================================================
 
+function countTotalSalary(salaries) {
+  let totalSalary = 0;
+  // Change code below this line
+	const values = Object.values(salaries);
+  for ( let i = 0; i < values.length; i += 1){
+    // totalSalary = totalSalary + values[i];
+    totalSalary += values[i];
+  }
+  // Change code above this line
+  console.log(totalSalary);
+  return totalSalary;
+}
+
+countTotalSalary({}) //возвращает 0
+countTotalSalary({ mango: 100, poly: 150, alfred: 80 }) //возвращает 330
+countTotalSalary({ kiwi: 200, poly: 50, ajax: 150 }) //возвращает 400
+
+// ====================================task_17==========================================================
+
