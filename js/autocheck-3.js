@@ -355,5 +355,133 @@ console.log(valuesN);
 // Значение переменной values это массив ["Spacious apartment in the city center", 4, 2153]
 
 // ====================================task_11==========================================================
+//Выполни рефакторинг решения предыдущего задания добавив в цикл for...in проверку на собственное свойство.
+const keys = [];
+const values = [];
+const advert = {
+  service: "apt",
+};
+const apartmentVI = Object.create(advert);
+apartment.descr = "Spacious apartment in the city center";
+apartment.rating = 4;
+apartment.price = 2153;
 
+for (const key in apartmentVI) {
+  // Change code below this line
+if (apartmentVI.hasOwnProperty(key)) {
+  keys.push(key);
+  values.push(apartmentVI[key]);
+}
+  // Change code above this line
+}
+// ====================================task_12==========================================================
+// Напиши функцию countProps(object), которая считает и возвращает количество собственных свойств объекта
+//  в параметре object.Используй переменную propCount для хранения количества свойств объекта.
+
+
+function countProps(object) {
+  let propCount = 0;
+  
+
+  // my working bad variation 
+//   let arrObj = [];
+// for(const key in object) {
+//   if (object.hasOwnProperty(key)) {
+//     arrObj.push(key);
+//     propCount = arrObj.length;
+//     console.log(propCount);
+//   }
+// }
+  // Change code below this line
+  
+  const keys = Object.keys(object);
+  propCount = keys.length;
+
+  // Change code above this line
+  console.log(propCount);
+  return propCount;
+
+ 
+}
+
+
+
+countProps({}) //возвращает 0
+countProps({ name: "Mango", age: 2 }) //возвращает 2
+countProps({ mail: "poly@mail.com", isOnline: true, score: 500 }) //возвращает 3
+//Функция подсчитывает только собственные свойства объекта
+
+// ====================================task_13==========================================================
+
+// Перебери объект apartment используя метод Object.keys() и цикл for...of.Запиши в переменную keys
+//  массив ключей собственных свойств объекта apartment, и добавь в массив values все значения его свойств.
+
+const apartmentVIII = {
+  descr: "Spacious apartment in the city center",
+  rating: 4,
+  price: 2153,
+};
+const valuesI = [];
+// Change code below this line
+const keysI = Object.keys(apartmentVIII);
+for( const item of keysI) {
+  values.push(apartmentVIII[item])
+  }
+
+// Объявлена переменная apartment.
+// Значение переменной apartment это объект.
+// Объявлена переменная keys.
+// Значение переменной keys это массив ["descr", "rating", "price"].
+// Значение переменной keys получено с помощью метода Object.keys().
+// Объявлена переменная values.
+// Значение переменной values это массив ["Spacious apartment in the city center", 4, 2153].
+// Значение переменной values получено с помощью цикла for...of.
+
+// ====================================task_14==========================================================
+// Выполни рефакторинг функции countProps(object) используя метод Object.keys() и, возможно,
+// но необязательно, цикл for...of.
+
+function countPropsI(object) {
+  // Change code below this line
+  let propCount = 0;
+
+  const key = Object.keys(object);
+  propCount = key.length
+  
+  
+  //for (const key in object) {
+    //if (object.hasOwnProperty(key)) {
+     // propCount += 1;
+    //}I
+  //}
+
+  return propCount;
+  // Change code above this line
+}
+
+countPropsI({}) //возвращает 0
+countPropsI({ name: "Mango", age: 2 }) //возвращает 2
+countPropsI({ mail: "poly@mail.com", isOnline: true, score: 500 }) //возвращает 3
+//Функция подсчитывает только собственные свойства объекта
+//Функция использует метод Object.keys() и, возможно, цикл for...of
+
+// ====================================task_15==========================================================
+// Theory
+// Если метод Object.keys(obj) возвращает массив ключей собственных свойств объекта, то метод
+// Object.values(obj)возвращает массив значений его собственных свойств.
+// Если в объекте нет свойств, метод Object.values(obj)вернёт пустой массив.
+
+// Запиши в переменную keys массив ключей собственных свойств объекта apartment,
+// а в переменную values массив всех значений его свойств.Используй методы Object.keys() и Object.values().
+
+const apartmentVII = {
+  descr: "Spacious apartment in the city center",
+  rating: 4,
+  price: 2153,
+};
+// Change code below this line
+const keysII = Object.keys(apartmentVII);
+const valuesII = Object.values(apartmentVII);
+
+// ====================================task_16==========================================================
 
