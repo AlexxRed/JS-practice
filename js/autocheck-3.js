@@ -530,7 +530,9 @@ for ( const color of colors) {
 // Значение переменной rgbColors это массив ["244,67,54", "33,150,243", "76,175,80", "255,235,59"]
 
 // ====================================task_18==========================================================
-
+// Напиши функцию getProductPrice(productName) которая принимает один параметр productName - название продукта.
+//  Функция ищет объект продукта с таким именем(свойство name) в массиве products и возвращает его цену
+//   (свойство price).Если продукт с таким названием не найден, функция должна возвращать null.
 // const products = [
 //   { name: "Radar", price: 1300, quantity: 4 },
 //   { name: "Scanner", price: 2700, quantity: 3 },
@@ -576,3 +578,72 @@ getProductPrice("Grip") //возвращает 1200.
 getProductPrice("Scanner") //возвращает 2700.
 getProductPrice("Droid") //возвращает 400.
 getProductPrice("Engine") //возвращает null.
+
+// ====================================task_19==========================================================
+// Напиши функцию getAllPropValues(propName) которая принимает один параметр propName - имя(ключ) свойства. 
+// Функция должна вернуть массив всех значений свойства с таким именем из каждого объекта в массиве products.
+// Если в объектах нет свойства с таким именем, функция должна вернуть пустой массив.
+const productsM = [
+  { name: "Radar", price: 1300, quantity: 4 },
+  { name: "Scanner", price: 2700, quantity: 3 },
+  { name: "Droid", price: 400, quantity: 7 },
+  { name: "Grip", price: 1200, quantity: 9 },
+];
+
+function getAllPropValues(propName) {
+  // Change code below this line
+const values = [];
+  for (const product of productsM) {
+    //   for (const key of product) {
+    //     if (key === propName) {
+    //       values.push(key);
+    //     }
+    //   }
+    // }
+    if (product.hasOwnProperty(propName)) {
+      values.push(product[propName])
+    }
+  }
+  console.log(values);
+return values;
+
+  // Change code above this line
+}
+
+getAllPropValues("name") //возвращает ["Radar", "Scanner", "Droid", "Grip"]
+getAllPropValues("quantity") //возвращает [4, 3, 7, 9]
+getAllPropValues("price") //возвращает [1300, 2700, 400, 1200]
+getAllPropValues("category") //возвращает []
+
+// ====================================task_20==========================================================
+// Напиши функцию calculateTotalPrice(productName) которая принимает один параметр productName - название товара.
+//  Функция должна вернуть общую стоимость(цена * количество) товара с таким именем из массива products.
+
+const productsA = [
+  { name: "Radar", price: 1300, quantity: 4 },
+  { name: "Scanner", price: 2700, quantity: 3 },
+  { name: "Droid", price: 400, quantity: 7 },
+  { name: "Grip", price: 1200, quantity: 9 },
+];
+
+function calculateTotalPrice(productName) {
+  // Пиши код ниже этой строки
+  let totalPrice = 0;
+for (const product of productsA)
+if (product.name === productName) {
+  totalPrice = product.price * product.quantity;
+  
+    }
+  
+  console.log(totalPrice);
+  return totalPrice
+  // Пиши код выше этой строки
+}
+
+calculateTotalPrice("Blaster") //возвращает 0
+calculateTotalPrice("Radar") //возвращает 5200
+calculateTotalPrice("Droid") //возвращает 2800
+calculateTotalPrice("Grip") //возвращает 10800
+calculateTotalPrice("Scanner") //возвращает 8100
+
+// ====================================task_21==========================================================
