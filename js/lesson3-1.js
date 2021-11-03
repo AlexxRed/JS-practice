@@ -68,16 +68,24 @@ console.log(a);
 
 const home = {
     name: "The Generation",
-    rooms: 5,
+    ownerCount: 2,
     rating: 9,
     price: 32000,
+    owners: ["Carla", "John"],
     getName() {
         console.log("function in object");
     },
     changeName(newName) {
         this.name = newName;
         console.log(home.name);
-    }
+    },
+    addOwner(owner) {
+        this.owners.push(owner);
+        this.ownerCount = this.owners.length;
+    },
+    changeRating(newrating) {
+        this.rating = newrating
+    },
 };
 
 console.log(home);
@@ -85,7 +93,151 @@ home.getName(13);
 home.changeName("The big home at the Mountines");
 console.log(home);
 
+home.addOwner('Bill')
+console.log(home);
 
+home.changeRating(10);
+console.log(home);
+//  ==============================================================
+//Object.keys
+const keys = Object.keys(home);
+console.log(keys);
+for (const key of keys) {
+    console.log(key);
+    console.log(home[key]);
 
+}
+//  ==============================================================
+//Object.values
 
+const values = Object.values(home);
+console.log(values);
+
+for (const value of values) {
+    console.log(value);
+};
+
+// ====================================================================================================
+
+const friends = [
+    { name: "Bill", status:"online",},
+    { name: "Fill", status:"offline",},
+    { name: "Anna", status:"online",},
+    { name: "Mike", status:"online",},
+];
+console.table(friends);
+
+for (const friend of friends) {
+    console.log(friend);
+    console.log(friend.name);
+
+    friend.age = "notInput";
+    console.log(friend);
+};
+
+//1 =================================================================
+
+const findFriendByName = function (allFriends, name) {
+    
+    for (const friend of allFriends) {
+        // console.log(friend);
+        // console.log(friend.name);
+
+        if (friend.name === name) {
+            return "This Name is find!!!!"
+        };      
+    };
+
+    return "I do not know this name!"
+};
+console.log(findFriendByName(friends, "Mike"));
+
+console.log(findFriendByName(friends, "Boris"));
+
+//2 =================================================================
+const getAllName = function (allFriends) {
+    
+    const friendsNames = [];
+
+    for (const friend of allFriends) {
+        console.log(friend.name);
+        friendsNames.push(friend.name);
+    };
+    return friendsNames
+}
+
+console.log(getAllName(friends));
+
+//3 =================================================================
+const getOnlineFriend = function (allFriends) {
+
+    const whoOnline = [];
+
+    for (const friend of allFriends) {
+        if (friend.status === "online") {
+            whoOnline.push(friend.name);
+         };
+    }
+
+    return whoOnline;
+}
+ 
+console.log(getOnlineFriend(friends));
+  
+//4 ===================================================================
+
+const getOfflineFriend = function (allFriends) {
+
+    const whoOffline = [];
+
+    for (const friend of allFriends) {
+        if (friend.status !== "online") {
+            whoOffline.push(friend.name);
+        };
+    }
+
+    return whoOffline;
+}
+
+console.log(getOfflineFriend(friends));
+
+//5 ====================================================================
+const getStatusFriend = function (allFriends) {
+
+    const friendByStatus = {
+    whoOffline: [],
+    whoOnline: [],
+    }
+    
+    for (const friend of allFriends) {
+        if (friend.status !== "online") {
+            friendByStatus.whoOffline.push(friend.name);
+            continue;
+        }
+        // } else {
+        friendByStatus.whoOnline.push(friend.name);
+// this intersting
+        //const key = friend.status !== "online" ? 'whoOffline' : 'whoOnline';
+       // friendByStatus[key].push(friend);
+        
+    }
+
+    return friendByStatus;
+}
+
+console.log(getStatusFriend(friends));
+
+// ===============================================================================================
+// ===============================================================================================
+const cart = {
+    items: [],
+    getItems() { },
+    add() { },
+    remove() { },
+    clear() { },
+    countTotalPrice() { },
+    increaseQuantity() { },
+    decreaseQuantity() {},
+    
+}
 
