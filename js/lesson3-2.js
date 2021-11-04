@@ -176,3 +176,108 @@ const { title, rat, tr, ...trackStats } = playlist;
 
 console.log(trackStats);
 console.table(trackStats);
+
+// ======================================================================
+
+const ShowProfileInfo = function (userProfile) {
+    const {
+        title,
+        rat,
+        tr,
+        trackTotal,
+        // statistic:
+        // { view, like, download 
+        ...statsUser
+    } = userProfile;
+
+    console.log(userProfile);
+    console.table(title, rat, tr, trackTotal, statsUser);
+
+};
+
+const profile = {
+    title: 'My training play list',
+    rat: 9,
+    tr: ['track_1', 'track_2', 'track_3', 'track_4'],
+    trackTotal: 4,
+    statistic: {
+        view: 100,
+        like: 98,
+        download: 1500,
+    },
+};
+
+ShowProfileInfo(profile);
+
+// =========================================================================
+// =========================================================================
+                                // Задача //   
+const cart = {
+    items: [],
+    getItems() {
+        return this.items;
+    },
+    add(product) {
+        for (const item of this.items){
+            if (item.name === product.name) {
+                console.log('already yet this product', product.name);
+                item.quantity += 1;
+                return;
+            }
+        }
+
+        const newProduct = {
+            ...product,
+            quantity: 1,
+        };
+        this.items.push(newProduct);
+    },
+    remove(productName) {
+        for (let i = 0; i < this.items.length; i += 1) {
+            if (productName === this.items[i].name) {
+                console.log("this product find ", productName);
+                console.log(i);
+                this.items.splice(i, 1);
+            };
+        }
+    },
+    clear() {
+        this.items = [];
+    },
+    countTotalPrice() {
+        let total = 0;
+
+        for (const item of this.items) {
+            total += item.price * item.quantity;
+            
+        }
+        return total;
+    },
+    increaseQuantity() { },
+    decreaseQuantity() { },
+    
+};
+
+console.log(cart.getItems());
+
+cart.add({ name: 'apple', price: 50 });
+cart.add({ name: 'lemon', price: 60 });
+cart.add({ name: 'berry', price: 60 });
+cart.add({ name: 'banana', price: 110 });
+cart.add({ name: 'lemon', price: 60 });
+cart.add({ name: 'lemon', price: 60 });
+
+console.table(cart.getItems());
+
+console.log('Total price = ', cart.countTotalPrice(), 'credits');
+
+cart.remove('apple');
+
+console.table(cart.getItems());
+
+cart.clear();
+
+console.log(cart.getItems());
+
+
+
