@@ -647,3 +647,545 @@ calculateTotalPrice("Grip") //возвращает 10800
 calculateTotalPrice("Scanner") //возвращает 8100
 
 // ====================================task_21==========================================================
+
+// const highTemperatures = {
+//   yesterday: 28,
+//   today: 26,
+//   tomorrow: 33,
+// };
+// // Change code below this line
+// const { yesterday, today, tomorrow } = highTemperatures;
+
+
+// // Change code above this line
+// const meanTemperature = (yesterday + today + tomorrow) / 3;
+
+// console.log(meanTemperature);
+
+// ====================================task_22==========================================================
+
+// const highTemperatures = {
+//   yesterday: 28,
+//   today: 26,
+//   tomorrow: 33,
+// };
+// // Change code below this line
+// const { yesterday,
+//   today,
+//   tomorrow,
+//   icon = "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg"
+// } = highTemperatures;
+
+
+// // Change code above this line
+// const meanTemperature = (yesterday + today + tomorrow) / 3;
+// console.log(meanTemperature);
+
+// ====================================task_23==========================================================
+
+const highTemperatures = {
+  yesterday: 28,
+  today: 26,
+  tomorrow: 33,
+};
+// Change code below this line
+const {
+yesterday: highYesterday,
+today: highToday,
+tomorrow: highTomorrow,
+icon: highIcon =  "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg"
+
+} = highTemperatures;
+
+
+// Change code above this line
+const meanTemperature = (highYesterday + highToday + highTomorrow) / 3;
+
+console.log(meanTemperature);
+
+// ====================================task_24==========================================================
+//Выполни рефакторинг цикла for...of так, чтобы в нём использовалась деструктуризация объекта..
+const colorss = [
+  { hex: "#f44336", rgb: "244,67,54" },
+  { hex: "#2196f3", rgb: "33,150,243" },
+  { hex: "#4caf50", rgb: "76,175,80" },
+  { hex: "#ffeb3b", rgb: "255,235,59" },
+];
+
+const hexColorss = [];
+const rgbColorss = [];
+// Change code below this line
+
+for (const { hex, rgb } of colorss) {
+  // const { hex, rgb } = color;
+  hexColorss.push(hex);
+  rgbColorss.push(rgb);
+};
+
+// ====================================task_25==========================================================
+// Мы получили прогноз погоды на два дня, с минимальными и максимальными температурами,
+// а также необязательными иконками.Замени объявления всех переменных одной операцией
+// деструктуризации свойств объекта forecast.Задай значение по умолчанию для иконок,
+//   переменных todayIcon и tomorrowIcon - строку
+// "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg".
+
+const forecast = {
+  today: {
+    low: 28,
+    high: 32,
+    icon: "https://www.flaticon.com/svg/static/icons/svg/861/861059.svg",
+  },
+  tomorrow: {
+    low: 27,
+    high: 31,
+  },
+};
+// Change code below this line
+const {
+  today: {
+  low: lowToday,
+  high: highTodays,//not s
+  icon: todayIcon = "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg",
+  },
+  tomorrow: {
+    low: lowTomorrow,
+    high: highTomorrows,//not s
+    icon: tomorrowIcon = "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg"
+  }
+  
+} = forecast;
+
+console.log(forecast);
+
+// ====================================task_26==========================================================
+//Замени объявления переменных todayLow, todayHigh,
+// tomorrowLow и tomorrowHigh одной операцией деструктуризации свойств объекта forecast.
+
+function calculateMeanTemperature(
+  { today: { low: todayLow, high: todayHigh }, tomorrow: { low: tomorrowLow, high: tomorrowHigh } }
+ ) {
+ 
+  // its true result
+  // const {
+  //   today: {
+  //     low: todayLow,
+  //     high: todayHigh
+  //   },
+  //   tomorrow: {
+  //     low: tomorrowLow,
+  //     high: tomorrowHigh
+  //   }
+  // } = forecast;
+
+  // Change code above this line
+  return (todayLow + todayHigh + tomorrowLow + tomorrowHigh) / 4;
+}
+
+// Объявлена функция calculateMeanTemperature(forecast)
+// В теле функции используется деструктуризация объекта
+// В теле функции объявлена переменная todayHigh с помощью деструктуризации
+// В теле функции объявлена переменная todayLow с помощью деструктуризации
+// В теле функции объявлена переменная tomorrowLow с помощью деструктуризации
+// В теле функции объявлена переменная tomorrowHigh с помощью деструктуризации
+console.log(calculateMeanTemperature({ today: {low: 28, high: 32}, tomorrow: {low: 25, high: 29} }));  //возвращает 28.5
+calculateMeanTemperature({ today: { low: 37, high: 40 }, tomorrow: { low: 33, high: 38 } }) //возвращает 37
+
+// ====================================task_27==========================================================
+// В переменной scores хранится массив результатов тестирования.Используя распыление и методы
+// Math.max() и Math.min() дополни код так, чтобы в переменной bestScore был самый высокий балл,
+//   а в worstScore самый низкий.
+
+const scores = [89, 64, 42, 17, 93, 51, 26];
+// Change code below this line
+const bestScore = Math.max(...scores);
+const worstScore = Math.min(...scores);
+
+
+// ====================================task_28==========================================================
+// В переменных firstGroupScores, secondGroupScores и thirdGroupScores хранятся результаты
+//  тестирования отдельных групп.Используя распыление дополни код так,чтобы:
+// В переменной allScores хранился массив всех результатов от первой до третьей группы.
+// В переменной bestScore был самый высокий общий балл.
+// В переменной worstScore был самый низкий общий балл.
+
+const firstGroupScores = [64, 42, 93];
+const secondGroupScores = [89, 14, 51, 26];
+const thirdGroupScores = [29, 47, 18, 97, 81];
+// Change code below this line
+const allScores = [...firstGroupScores, ...secondGroupScores, ...thirdGroupScores];
+const bestScoreI = Math.max(...allScores);
+const worstScoreI = Math.min(...allScores);
+
+// ====================================task_29==========================================================
+
+// В конструкторе можно создавать новые тесты, для которых есть настройки по умолчанию которые 
+// хранятся в переменной defaultSettings.Во время создания теста, все или часть настроек можно
+// переопределить, они хранятся в переменной overrideSettings.
+// Для того чтобы получить финальные настройки теста, необходимо взять настройки по умолчанию и
+//  поверх них применить переопределённые настройки.Дополни код так, чтобы в переменной 
+//  finalSettings получился объект финальных настроек теста.
+
+const defaultSettings = {
+  theme: "light",
+  public: true,
+  withPassword: false,
+  minNumberOfQuestions: 10,
+  timePerQuestion: 60,
+};
+const overrideSettings = {
+  public: false,
+  withPassword: true,
+  timePerQuestion: 30,
+};
+// Change code below this line
+const finalSettings = {
+  ...defaultSettings,
+  ...overrideSettings
+};
+
+// ====================================task_30==========================================================
+
+function makeTask(data) {
+  const completed = false;
+  const category = "General";
+  const priority = "Normal";
+  // Change code below this line
+  
+  
+  const newTask = {
+    completed,
+    category,
+    priority,
+    ...data,
+  };
+  console.log(newTask);
+return newTask;
+
+  // Change code above this line
+}
+
+//Объявлена функция makeTask(data)
+makeTask({})// возвращает { category: "General", priority: "Normal", completed: false }
+makeTask({ category: "Homemade", priority: "Low", text: "Take out the trash" }) //возвращает { category: "Homemade", priority: "Low", text: "Take out the trash", completed: false }
+makeTask({ category: "Finance", text: "Take interest" }) //возвращает { category: "Finance", priority: "Normal", text: "Take interest", completed: false }
+makeTask({ priority: "Low", text: "Choose shampoo" }) //возвращает { category: "General", priority: "Low", text: "Choose shampoo", completed: false }
+makeTask({ text: "Buy bread" }) //возвращает { category: "General", priority: "Normal", text: "Buy bread", completed: false }
+
+// ====================================task_31==========================================================
+// Используя операцию rest дополни код функции add() так, чтобы она принимала любое количество
+// аргументов, считала и возвращала их сумму.
+
+// Change code below this line
+function add(...args) {
+  const argsArr = [...args];
+  let lotalSum = 0;
+  for (const arg of argsArr){
+  lotalSum += arg;
+  };
+  console.log(lotalSum);
+  return  lotalSum; 
+  // Change code above this line
+};
+
+add(15, 27) //возвращает 42
+add(12, 4, 11, 48) //возвращает 75
+add(32, 6, 13, 19, 8) //возвращает 78
+add(74, 11, 62, 46, 12, 36) //возвращает 241
+
+// ====================================task_32==========================================================
+// Функция addOverNum() считает сумму всех аргументов.Измени параметры и тело функции
+// addOverNum() так, чтобы она считала сумму только тех аргументов, которые больше чем заданное
+// число.Это число должно быть первым параметром функции.
+// Change code below this line
+function addOverNum(firstArg, ...args) {
+  let total = 0;
+  
+  for (const arg of args) {
+    if (arg > firstArg)
+    total += arg;
+  };
+  console.log(total);
+  return total;
+  // Change code above this line
+};
+
+addOverNum(50, 15, 27) //возвращает 0
+addOverNum(10, 12, 4, 11, 48, 10, 8) //возвращает 71
+addOverNum(15, 32, 6, 13, 19, 8) //возвращает 51
+addOverNum(20, 74, 11, 62, 46, 12, 36) //возвращает 218
+
+// ====================================task_33==========================================================
+
+
+function findMatches(mathesArr, ...restArr) {
+  const matches = []; // Don't change this line
+  
+  // for (const match of mathesArr) {
+  //   for ( const restmatch of restArr){
+  //     if ( match === restmatch) {
+  //     matches.push(restmatch);
+  //     };
+  //   };
+  // };
+  
+  for (const match of restArr) {
+    
+    if ( mathesArr.includes(match)) {
+        matches.push(match);
+        }
+  };
+  
+
+  // Change code above this line
+  console.log(matches);
+  return matches;
+}
+
+findMatches([1, 2, 3, 4, 5], 1, 8, 2, 7) //возвращает [1, 2]
+findMatches([4, 89, 17, 36, 2], 8, 17, 89, 27, 2) //возвращает [17, 89, 2]
+findMatches([10, 24, 41, 6, 9, 19], 24, 11, 9, 23, 41) //возвращает [24, 9, 41]
+findMatches([63, 11, 8, 29], 4, 7, 16) //возвращает []
+
+// ====================================task_34==========================================================
+// Добавь объекту bookShelf ещё два метода, которые пока что будут возвращать просто строки по
+//  аналогии с getBooks() и addBook(bookName).
+// Метод removeBook(bookName) будет удалять книгу по имени.Возвращает строку
+// "Deleting book <имя книги>", где < имя книги > это значение параметра bookName.
+// Метод updateBook(oldName, newName) будет обновлять название книги на новое.
+//  Возвращает строку "Updating book <старое имя> to <новое имя>", где < старое имя >
+//   и < новое имя > это значения параметров oldName и newName соотвественно.
+
+const bookShelf = {
+  // Change code below this line
+  books: ["The last kingdom", "The guardian of dreams"],
+  getBooks() {
+    return "Returning all books";
+  },
+  addBook(bookName) {
+    return `Adding book ${bookName}`;
+  },
+  removeBook(bookName) {
+   return `Deleting book ${bookName}`;
+  },
+  updateBook(oldName, newName){
+   return `Updating book ${oldName} to ${newName}`; 
+  }
+  // Change code above this line
+};
+
+bookShelf.getBooks() //возвращает строку "Возвращаем все книги"
+console.log(bookShelf.getBooks());
+//bookShelf.addBook это метод объекта
+
+bookShelf.addBook("Haze") //возвращает строку "Adding book Haze"
+console.log(bookShelf.addBook("Haze"));
+//bookShelf.removeBook это метод объекта
+
+bookShelf.removeBook("Red sunset") //возвращает строку "Deleting book Red sunset"
+console.log(bookShelf.removeBook("Red sunset"));
+//bookShelf.updateBook это метод объекта
+
+bookShelf.updateBook("Sands of dune", "Dune") //возвращает строку "Updating book Sands of dune to Dune"
+console.log(bookShelf.updateBook("Sands of dune", "Dune"));
+
+// ====================================task_35==========================================================
+
+// Дополни метод updateBook(oldName, newName) так, чтобы он изменял название книги с oldName
+// на newName в свойстве books.Используй indexOf() для того, чтобы найти нужный элемент массива,
+// и splice() для того чтобы заменить этот элемент
+
+const bookShelfI = {
+  books: ["The last kingdom", "Haze", "The guardian of dreams"],
+  updateBook(oldName, newName) {
+    // Change code below this line
+    
+  const bookIdx = this.books.indexOf(oldName);
+    
+  this.books.splice(bookIdx, 1, newName); 
+  console.log(this.books);
+  return this.books;
+    // Change code above this line
+  },
+};
+
+bookShelfI.updateBook("Haze", "Dungeon chronicles")//, значение свойства books это массив ["The last kingdom", "Dungeon chronicles", "The guardian of dreams"]
+
+bookShelfI.updateBook("The last kingdom", "Dune")//, значение свойства books это массив ["Dune", "Haze", "The guardian of dreams"]
+
+// ====================================task_36==========================================================
+//К нам обратилась владелица лавки зелий «У старой жабы» и заказала программу для ведения инвентаря - 
+//добавления, удаления, поиска и обновления зелий.Добавь объекту atTheOldToad свойство 
+// potions, значением которого сделай пустой массив.
+const atTheOldToadX = {
+  // Change code below this line
+
+potions: [],
+
+  // Change code above this line
+};
+// ====================================task_37==========================================================
+// Добавь объекту atTheOldToad метод getPotions(), который просто возвращает значение 
+// свойства potions.
+const atTheOldToadI = {
+  potions: ["Speed potion", "Dragon breath", "Stone skin"],
+  // Change code below this line
+  getPotions(){
+   return this.potions
+  }
+  // Change code above this line
+};
+atTheOldToadI.getPotions() //возвращает ["Speed potion", "Dragon breath", "Stone skin"]
+
+// ====================================task_38==========================================================
+// Дополни метод addPotion(potionName) так, чтобы он добавлял зелье potionName
+//  в конец массива зелий в свойстве potions.
+
+const atTheOldToadII = {
+  potions: ["Speed potion", "Dragon breath", "Stone skin"],
+  addPotion(potionName) {
+    // Change code below this line
+    this.potions.push(potionName);
+    console.log(this.potions);
+
+    // Change code above this line
+  },
+};
+
+atTheOldToadII.addPotion("Invisibility")//, в свойстве potions будет массив ["Speed potion", "Dragon breath", "Stone skin", "Invisibility"]
+atTheOldToadII.addPotion("Power potion")//, в свойстве potions будет массив ["Speed potion", "Dragon breath", "Stone skin", "Invisibility", "Power potion"]
+
+// ====================================task_39==========================================================
+// Дополни метод removePotion(potionName) так, чтобы он удалял зелье potionName 
+// из массива зелий в свойстве potions.
+
+const atTheOldToadIII = {
+  potions: ["Speed potion", "Dragon breath", "Stone skin"],
+  removePotion(potionName) {
+    // Change code below this line
+    this.potions.splice(this.potions.indexOf(potionName), 1);
+
+    
+    // const potionIdx = this.potions.indexOf(potionName);
+    // this.potions.splice(potionIdx, 1);
+    // console.log(this.potions);
+    // return this.potions;
+
+    // Change code above this line
+  },
+};
+
+atTheOldToadIII.removePotion("Dragon breath")//, в свойстве potions будет массив ["Speed potion", Stone skin"]
+atTheOldToadIII.removePotion("Speed potion")//, в свойстве potions будет массив ["Stone skin"]
+
+// ====================================task_40==========================================================
+// Дополни метод updatePotionName(oldName, newName) так, чтобы он обновлял название зелья с oldName на
+// newName, в массиве зелий в свойстве potions.
+
+const atTheOldToadIV = {
+  potions: ["Speed potion", "Dragon breath", "Stone skin"],
+  updatePotionName(oldName, newName) {
+
+    //this Work too!!!
+
+    // Change code below this line
+    // for (const potion of this.potions ) {
+    //   if (potion === oldName) {
+    //     const idx = this.potions.indexOf(oldName);
+    //     this.potions.splice(idx, 1, newName);
+    //    };
+    // };
+
+    // but this more good option
+    const idx = this.potions.indexOf(oldName);
+    this.potions.splice(idx, 1, newName);
+
+
+console.log(this.potions);
+    // Change code above this line
+  },
+  
+};
+
+atTheOldToadIV.updatePotionName("Dragon breath", "Polymorth")//, в свойстве potions будет массив ["Speed potion", "Polymorth", "Stone skin"]
+atTheOldToadIV.updatePotionName("Stone skin", "Invisibility")//, в свойстве potions будет массив ["Speed potion", "Polymorth", "Invisibility"]
+
+// ====================================task_41==========================================================
+// Заказчица хочет чтобы каждое зелье было представлено не только именем, но и ценой,
+//   а в будущем может быть и другими характеристиками.Поэтому теперь в свойстве potions
+//    будет храниться массив объектов со следующими свойствами.
+// {
+//   name: "Dragon breath",
+//   price: 700
+// }
+// Выполни рефакторинг методов объекта atTheOldToad так, чтобы они работали не с массивом
+// строк, а с массивом объектов.
+// getPotions() - метод для получения всех зелий. Возвращает значение свойства potions.
+//   addPotion(newPotion) - добавляет зелье newPotion(уже объект) в массив в свойстве potions,
+//     но только если такого зелья еще нет в инвентаре.В противном случае возвращается строка.
+//   removePotion(potionName) - удаляет объект зелья с именем potionName из массива в
+//  свойстве potions.
+//   updatePotionName(oldName, newName) - обновляет свойство name объекта - зелья с названием 
+// oldName на newName в массиве potions.
+
+const atTheOldToad = {
+  potions: [
+    { name: "Speed potion", price: 460 },
+    { name: "Dragon breath", price: 780 },
+    { name: "Stone skin", price: 520 },
+  ],
+  // Change code below this line
+  getPotions() {
+    console.log(this.potions);
+    return this.potions;
+
+  },
+  addPotion(newPotion) {
+    const { name } = potions;
+    if (name.includes(newPotion.name)) {
+      this.potions.push(newPotion);
+      console.log(this.potions);
+    }
+
+    return `Error! Potion ${newPotion} is already in your inventory!`;
+  },
+  removePotion(potionName) {
+    const potionIndex = this.potions.indexOf(potionName);
+
+    if (potionIndex === -1) {
+      return `Potion ${potionName} is not in inventory!`;
+    }
+
+    this.potions.splice(potionIndex, 1);
+  },
+  updatePotionName(oldName, newName) {
+    const potionIndex = this.potions.indexOf(oldName);
+
+    if (potionIndex === -1) {
+      return `Potion ${oldName} is not in inventory!`;
+    }
+
+    this.potions.splice(potionIndex, 1, newName);
+  },
+  // Change code above this line
+};
+
+atTheOldToad.getPotions() //для исходного объекта возвращает [ { name: "Speed potion", price: 460 }, { name: "Dragon breath", price: 780 }, { name: "Stone skin", price: 520 } ]
+//Значение свойства atTheOldToad.addPotion это метод объекта.
+atTheOldToad.addPotion({ name: "Invisibility", price: 620 })//, в массиве potions последним элементом будет этот объект
+atTheOldToad.addPotion({ name: "Power potion", price: 270 })//, в массиве potions последним элементом будет этот объект
+//Если добавляемое зелье уже есть в массиве potions, метод addPotion возвращает строку с текстом из исходного кода
+//Если добавляемое зелье уже есть в массиве potions, метод addPotion не добавляет в него передаваемый обьект
+atTheOldToad.addPotion({ name: "Dragon breath", price: 700 })//, массив potions не изменяется
+atTheOldToad.addPotion({ name: "Stone skin", price: 240 })//, массив potions не изменяется
+atTheOldToad.addPotion({ name: "Dragon breath", price: 700 })//, возвращает строку "Error! Potion Dragon breath is already in your inventory!"
+atTheOldToad.addPotion({ name: "Stone skin", price: 240 })//, возвращает строку "Error! Potion Stone skin is already in your inventory!"
+//Значение свойства atTheOldToad.removePotion это метод объекта
+atTheOldToad.removePotion("Dragon breath")//, в свойстве potions будет массив [ { name: "Speed potion", price: 460 }, { name: "Stone skin", price: 520 } ]
+atTheOldToad.removePotion("Speed potion")//, в свойстве potions будет массив [ { name: "Dragon breath", price: 780 }, { name: "Stone skin", price: 520 }]
+//Значение свойства atTheOldToad.updatePotionName это метод объекта
+atTheOldToad.updatePotionName("Dragon breath", "Polymorth")//, в свойстве potions будет массив [{ name: "Speed potion", price: 460 }, { name: "Polymorth", price: 780 }, { name: "Stone skin", price: 520 } ]
+atTheOldToad.updatePotionName("Stone skin", "Invulnerability potion")//, в свойстве potions будет массив [{ name: "Speed potion", price: 460 }, { name: "Dragon breath", price: 780 }, { name: "Invulnerability potion", price: 520 } ]
+
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// =================================================================================
