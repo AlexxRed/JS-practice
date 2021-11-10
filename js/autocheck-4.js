@@ -300,4 +300,452 @@ getCommonElementsI([1, 2, 3], [10, 20, 30]) //возвращает []
 
 // ====================================task_13==========================================================
 
+// Функция changeEven(numbers, value) принимает массив чисел numbers и обновляет каждый элемент,
+//   значение которого это чётное число, добавляя к нему значение параметра value.
+// Выполни рефакторинг функции так, чтобы она стала чистой - не изменяла массив чисел numbers,
+//   а создавала, наполняла и возвращала новый массив с обновлёнными значениями.
+
+function changeEven(numbers, value) {
+  // Change code below this line
+
+  const newArray = [];
+  
+  numbers.forEach(number => {
+    if (number % 2 === 0) {
+    newArray.push(number + value);
+    } else {
+      newArray.push(number)
+    };
+  });
+  console.log(newArray);
+  return newArray;
+  // Change code above this line
+}
+
+changeEven([1, 2, 3, 4, 5], 10) //возвращает новый массив [1, 12, 3, 14, 5]
+changeEven([2, 8, 3, 7, 4, 6], 10) //возвращает новый массив [12, 18, 3, 7, 14, 16]
+changeEven([17, 24, 68, 31, 42], 100) //возвращает новый массив [17, 124, 168, 31, 142]
+changeEven([44, 13, 81, 92, 36, 54], 100) //возвращает новый массив [144, 13, 81, 192, 136, 154]
+//Вызов функции со случайными, но валидными аргументами, возвращает правильное значение
+
+// ====================================task_14==========================================================
+
+// Дополни код так, чтобы в переменной planetsLengths получился массив длин названий планет.
+//  Обязательно используй метод map().
+
+const planets = ["Earth", "Mars", "Venus", "Jupiter"];
+// Change code below this line
+// const planetsLengths = [];
+//   planets.map(planet => {
+//     planetsLengths.push(planet.length);
+  
+// });
+// console.log(planetsLengths);
+const planetsLengths = planets.map((planet) => planet = planet.length);
+console.log(planetsLengths);
+
+// Значение переменной planets это массив ["Earth", "Mars", "Venus", "Jupiter"]
+// Объявлена переменная planetsLengths
+// Значение переменной planetsLengths это массив [5, 4, 6, 6]
+// Для перебора массива планет использован метод map()
+
+// ====================================task_15==========================================================
+// Используя метод map() сделай так, чтобы в переменной titles получился массив названий книг
+//   (свойство title) из всех объектов массива books.
+
+const books = [
+  {
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    rating: 8.38,
+  },
+  {
+    title: "Beside Still Waters",
+    author: "Robert Sheckley",
+    rating: 8.51,
+  },
+  {
+    title: "The Dream of a Ridiculous Man",
+    author: "Fyodor Dostoevsky",
+    rating: 7.75,
+  },
+  { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
+  { title: "Enemy of God", author: "Bernard Cornwell", rating: 8.67 },
+];
+// Change code below this line
+
+const titles = books.map(book => book.title);
+console.log(titles);
+
+// Значение переменной titles это массив
+// ["The Last Kingdom", "Beside Still Waters", "The Dream of a Ridiculous Man", "Redder Than Blood", "Enemy of God"]
+
+// ====================================task_16==========================================================
+
+// Используя метод flatMap() сделай так, чтобы в переменной genres получился массив всех жанров 
+// книг(свойство genres) из массива книг books.
+
+const booksI = [
+  {
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    genres: ["adventure", "history"],
+  },
+  {
+    title: "Beside Still Waters",
+    author: "Robert Sheckley",
+    genres: ["fiction"],
+  },
+  {
+    title: "Redder Than Blood",
+    author: "Tanith Lee",
+    genres: ["horror", "mysticism"],
+  },
+];
+// Change code below this line
+
+const genres = booksI.flatMap(book => book.genres);
+console.log(genres);
+
+// Значение переменной genres это массив [ "adventure", "history", "fiction", "horror", "mysticism" ]
+
+// ====================================task_17==========================================================
+// Дополни функцию getUserNames(users) так, чтобы она возвращала массив имён
+// пользователей(свойство name) из массива объектов в параметре users.
+
+// Change code below this line
+const getUserNames = users => {
+    
+return users.map(user => user.name)
+  };
+  // Change code above this line
+
+
+console.log(getUserNames([
+  {
+    name: "Moore Hensley",
+    email: "moorehensley@indexia.com",
+    eyeColor: "blue",
+    friends: ["Sharron Pace"],
+    isActive: false,
+    balance: 2811,
+    skills: ["ipsum", "lorem"],
+    gender: "male",
+    age: 37,
+  },
+  {
+    name: "Sharlene Bush",
+    email: "sharlenebush@tubesys.com",
+    eyeColor: "blue",
+    friends: ["Briana Decker", "Sharron Pace"],
+    isActive: true,
+    balance: 3821,
+    skills: ["tempor", "mollit", "commodo", "veniam", "laborum"],
+    gender: "female",
+    age: 34,
+  },
+  {
+    name: "Ross Vazquez",
+    email: "rossvazquez@xinware.com",
+    eyeColor: "green",
+    friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
+    isActive: false,
+    balance: 3793,
+    skills: ["nulla", "anim", "proident", "ipsum", "elit"],
+    gender: "male",
+    age: 24,
+  },
+  {
+    name: "Elma Head",
+    email: "elmahead@omatom.com",
+    eyeColor: "green",
+    friends: ["Goldie Gentry", "Aisha Tran"],
+    isActive: true,
+    balance: 2278,
+    skills: ["adipisicing", "irure", "velit"],
+    gender: "female",
+    age: 21,
+  },
+  {
+    name: "Carey Barr",
+    email: "careybarr@nurali.com",
+    eyeColor: "blue",
+    friends: ["Jordan Sampson", "Eddie Strong"],
+    isActive: true,
+    balance: 3951,
+    skills: ["ex", "culpa", "nostrud"],
+    gender: "male",
+    age: 27,
+  },
+  {
+    name: "Blackburn Dotson",
+    email: "blackburndotson@furnigeer.com",
+    eyeColor: "brown",
+    friends: ["Jacklyn Lucas", "Linda Chapman"],
+    isActive: false,
+    balance: 1498,
+    skills: ["non", "amet", "ipsum"],
+    gender: "male",
+    age: 38,
+  },
+  {
+    name: "Sheree Anthony",
+    email: "shereeanthony@kog.com",
+    eyeColor: "brown",
+    friends: ["Goldie Gentry", "Briana Decker"],
+    isActive: true,
+    balance: 2764,
+    skills: ["lorem", "veniam", "culpa"],
+    gender: "female",
+    age: 39,
+  },
+]));
+
+// ====================================task_18==========================================================
+// Дополни функцию getUserEmails(users) так, чтобы она возвращала массив почтовых адресов
+// пользователей(свойство email) из массива объектов в параметре users.
+// Change code below this line
+const getUserEmails = users => {
+    
+return users.map(user => user.email)
+  };
+  // Change code above this line
+  
+// Вызов функции с указанным массивом пользователей возвращает массив
+// ["moorehensley@indexia.com", "sharlenebush@tubesys.com", "rossvazquez@xinware.com", "elmahead@omatom.com", "careybarr@nurali.com", "blackburndotson@furnigeer.com", "shereeanthony@kog.com"]
+
+// ====================================task_19==========================================================
+// Дополни код так, чтобы в переменной evenNumbers получился массив чётных чисел из массива numbers,
+//   а в переменной oddNumbers массив нечётных.Обязательно используй метод filter().
+
+const numbers = [17, 24, 82, 61, 36, 18, 47, 52, 73];
+// Change code below this line
+
+const evenNumbers = numbers.filter(number => number % 2 === 0);
+const oddNumbers = numbers.filter(number => number % 2 !== 0);
+
+console.log(evenNumbers, oddNumbers);
+
+// ====================================task_20==========================================================
+// Дополни код так, чтобы в переменной allGenres был массив всех жанров книг(свойство genres)
+//  из массива books, а в переменной uniqueGenres массив уникальных жанров - без повторений.
+
+const booksV = [
+  {
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    genres: ["adventure", "history"],
+  },
+  {
+    title: "Beside Still Waters",
+    author: "Robert Sheckley",
+    genres: ["fiction", "mysticism"],
+  },
+  {
+    title: "Redder Than Blood",
+    author: "Tanith Lee",
+    genres: ["horror", "mysticism", "adventure"],
+  },
+];
+// Change code below this line
+const allGenres = booksV.flatMap(book => book.genres);
+const uniqueGenres = allGenres.filter((genre, idx, array) => array.indexOf(genre) === idx);
+
+console.log(allGenres);
+console.log(uniqueGenres);
+
+// ====================================task_21==========================================================
+
+// Используя метод filter() дополни код так, чтобы:
+// В переменной topRatedBooks получился массив книг рейтинг которых(свойство rating)
+//  больше либо равно значению переменной MIN_RATING.
+// В переменной booksByAuthor получился массив книг написанных автором с именем
+//   (свойство author) которое совпадает со значением в переменной AUTHOR.
+
+const booksVI = [
+  {
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    rating: 8.38,
+  },
+  {
+    title: "Beside Still Waters",
+    author: "Robert Sheckley",
+    rating: 8.51,
+  },
+  {
+    title: "The Dream of a Ridiculous Man",
+    author: "Fyodor Dostoevsky",
+    rating: 7.75,
+  },
+  { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
+  { title: "Enemy of God", author: "Bernard Cornwell", rating: 8.67 },
+];
+
+const MIN_RATING = 8;
+const AUTHOR = "Bernard Cornwell";
+// Change code below this line
+
+const topRatedBooks = booksVI.filter(({rating}) => rating >= MIN_RATING);
+// const booksByAuthor = booksVI.filter(({ author, title }) => {
+//   if (author === AUTHOR) {
+//     return title;
+//   }
+// })
+const booksByAuthor = booksVI.filter(({author}) => author === AUTHOR);
+console.log(topRatedBooks);
+console.log(booksByAuthor);
+
+// ====================================task_22==========================================================
+// Дополни функцию getUsersWithEyeColor(users, color) так, чтобы она возвращала массив пользователей у
+//  которых цвет глаз(свойство eyeColor) совпадает со значением параметра color.
+
+// Change code below this line
+const getUsersWithEyeColor = (users, color) => {
+const filterByColor =  users.filter(({eyeColor}) => eyeColor === color)
+return filterByColor
+};
+// Change code above this line
+
+// [
+//   {
+//     name: "Moore Hensley",
+//     email: "moorehensley@indexia.com",
+//     eyeColor: "blue",
+//     friends: ["Sharron Pace"],
+//     isActive: false,
+//     balance: 2811,
+//     gender: "male"
+//   },
+//   {
+//     name: "Sharlene Bush",
+//     email: "sharlenebush@tubesys.com",
+//     eyeColor: "blue",
+//     friends: ["Briana Decker", "Sharron Pace"],
+//     isActive: true,
+//     balance: 3821,
+//     gender: "female"
+//   },
+//   {
+//     name: "Ross Vazquez",
+//     email: "rossvazquez@xinware.com",
+//     eyeColor: "green",
+//     friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
+//     isActive: false,
+//     balance: 3793,
+//     gender: "male"
+//   },
+//   {
+//     name: "Elma Head",
+//     email: "elmahead@omatom.com",
+//     eyeColor: "green",
+//     friends: ["Goldie Gentry", "Aisha Tran"],
+//     isActive: true,
+//     balance: 2278,
+//     gender: "female"
+//   },
+//   {
+//     name: "Carey Barr",
+//     email: "careybarr@nurali.com",
+//     eyeColor: "blue",
+//     friends: ["Jordan Sampson", "Eddie Strong"],
+//     isActive: true,
+//     balance: 3951,
+//     gender: "male"
+//   },
+//   {
+//     name: "Blackburn Dotson",
+//     email: "blackburndotson@furnigeer.com",
+//     eyeColor: "brown",
+//     friends: ["Jacklyn Lucas", "Linda Chapman"],
+//     isActive: false,
+//     balance: 1498,
+//     gender: "male"
+//   },
+//   {
+//     name: "Sheree Anthony",
+//     email: "shereeanthony@kog.com",
+//     eyeColor: "brown",
+//     friends: ["Goldie Gentry", "Briana Decker"],
+//     isActive: true,
+//     balance: 2764,
+//     gender: "female"
+//   }
+// ]
+
+// ====================================task_23==========================================================
+// Дополни функцию getUsersWithAge(users, minAge, maxAge) так, чтобы она возвращала массив
+// пользователей, возраст которых(свойство age) попадает в промежуток от minAge до maxAge.
+
+// Change code below this line
+const getUsersWithAge = (users, minAge, maxAge) => {
+
+//1
+  // const filteredUsers = users.filter(({age}) => age > minAge && age < maxAge);
+  // return filteredUsers;
+//2
+  // return users.filter(item => item .age > minAge && item .age < maxAge);
+//3
+  return users.filter(({age}) => age > minAge && age < maxAge);
+};
+// Change code above this line
+
+// ====================================task_24==========================================================
+
+// Дополни функцию getUsersWithFriend(users, friendName) так, чтобы она возвращала массив 
+// пользователей у которых есть друг с именем в параметре friendName.Массив друзей пользователя
+//  хранится в свойстве friends.
+// Change code below this line
+const getUsersWithFriend = (users, friendName) => {
+
+  return users.filter(({friends}) => friends.includes(friendName));
+};
+
+// Change code above this 
+
+// ====================================task_25==========================================================
+
+// Дополни функцию getFriends(users) так, чтобы она возвращала массив друзей всех пользователей
+// (свойство friends).У нескольких пользователей могут быть одинаковые друзья,
+// сделай так чтобы возвращаемый массив не содержал повторений.
+
+// Change code below this line
+const getFriends = (users) => {
+ const allFriends = users.flatMap(user => user.friends);
+ return allFriends.filter((user, idx, array) => array.indexOf(user) === idx);
+};
+// Change code above this line
+
+// Вызов функции с указанным массивом пользователей возвращает массив
+// ["Sharron Pace", "Briana Decker", "Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner", "Goldie Gentry", "Aisha Tran", "Jordan Sampson", "Eddie Strong", "Jacklyn Lucas", "Linda Chapman"]
+
+// ====================================task_26==========================================================
+// Дополни функцию getActiveUsers(users) так, чтобы она возвращала массив активных пользователей,
+//   значение свойства isActive которых true.
+
+// Change code below this line
+const getActiveUsers = (users) => {
+  return users.filter(({ isActive }) => isActive === true);
+};
+// Change code above this line
+
+// ызов функции с указанным массивом пользователей возвращает массив объектов пользователей с именами Sharlene Bush, Elma Head, Carey Barr и Sheree Anthony
+
+// ====================================task_27==========================================================
+// Дополни функцию getInactiveUsers(users) так, чтобы она возвращала массив неактивных пользователей,
+//   значение свойства isActive которых false.
+
+// Change code below this line
+const getInactiveUsers = (users) => {
+  return users.filter(({ isActive }) => isActive !== true);
+  //  return users.filter(({ isActive }) => isActive === false);
+};
+// Change code above this line
+
+// Вызов функции с указанным массивом пользователей возвращает массив объектов пользователей с именами Moore
+// Hensley, Ross Vazquez и Blackburn Dotson
+
+// ====================================task_28==========================================================
+
+
 
