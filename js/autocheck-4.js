@@ -747,5 +747,413 @@ const getInactiveUsers = (users) => {
 
 // ====================================task_28==========================================================
 
+// Используя метод find() дополни код так, чтобы:
+// В переменной bookWithTitle получился объект книги название которой(свойство title) совпадает со 
+// значением переменной BOOK_TITLE.
+// В переменной bookByAuthor получился объект книги автор который(свойство author) совпадает со 
+// значением переменной AUTHOR.
+
+const booksVII = [
+  {
+    title: 'The Last Kingdom',
+    author: 'Bernard Cornwell',
+    rating: 8.38,
+  },
+  {
+    title: 'Beside Still Waters',
+    author: 'Robert Sheckley',
+    rating: 8.51,
+  },
+  {
+    title: 'The Dream of a Ridiculous Man',
+    author: 'Fyodor Dostoevsky',
+    rating: 7.75,
+  },
+  { title: 'Redder Than Blood', author: 'Tanith Lee', rating: 7.94 },
+];
+const BOOK_TITLE = 'The Dream of a Ridiculous Man';
+const AUTHORI = 'Robert Sheckley';
+// Change code below this line
+
+const bookWithTitle = booksVII.find(({title}) => title === 'The Dream of a Ridiculous Man');
+const bookByAuthor = booksVII.find(({ author }) => author === 'Robert Sheckley');
+
+// const bookWithTitle = books.find(({title}) => title === BOOK_TITLE);
+// const bookByAuthor = books.find(({author}) => author === AUTHOR);
+console.log(bookWithTitle);
+console.log(bookByAuthor);
+
+// ====================================task_29==========================================================
+// Дополни функцию getUserWithEmail(users, email) так, чтобы она возвращала объект пользователя,
+//   почта которого(свойство email) совпадает со значением параметра email.
+// Change code below this line
+const getUserWithEmail = (users, email) => {
+  return users.find(user => user.email === email);
+};
+// Change code above this line
+
+// [
+//   {
+//     name: "Moore Hensley",
+//     email: "moorehensley@indexia.com",
+//     eyeColor: "blue",
+//     friends: ["Sharron Pace"],
+//     isActive: false,
+//     balance: 2811,
+//     gender: "male"
+//   },
+//   {
+//     name: "Sharlene Bush",
+//     email: "sharlenebush@tubesys.com",
+//     eyeColor: "blue",
+//     friends: ["Briana Decker", "Sharron Pace"],
+//     isActive: true,
+//     balance: 3821,
+//     gender: "female"
+//   },
+//   {
+//     name: "Ross Vazquez",
+//     email: "rossvazquez@xinware.com",
+//     eyeColor: "green",
+//     friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
+//     isActive: false,
+//     balance: 3793,
+//     gender: "male"
+//   },
+//   {
+//     name: "Elma Head",
+//     email: "elmahead@omatom.com",
+//     eyeColor: "green",
+//     friends: ["Goldie Gentry", "Aisha Tran"],
+//     isActive: true,
+//     balance: 2278,
+//     gender: "female"
+//   },
+//   {
+//     name: "Carey Barr",
+//     email: "careybarr@nurali.com",
+//     eyeColor: "blue",
+//     friends: ["Jordan Sampson", "Eddie Strong"],
+//     isActive: true,
+//     balance: 3951,
+//     gender: "male"
+//   },
+//   {
+//     name: "Blackburn Dotson",
+//     email: "blackburndotson@furnigeer.com",
+//     eyeColor: "brown",
+//     friends: ["Jacklyn Lucas", "Linda Chapman"],
+//     isActive: false,
+//     balance: 1498,
+//     gender: "male"
+//   },
+//   {
+//     name: "Sheree Anthony",
+//     email: "shereeanthony@kog.com",
+//     eyeColor: "brown",
+//     friends: ["Goldie Gentry", "Briana Decker"],
+//     isActive: true,
+//     balance: 2764,
+//     gender: "female"
+//   }
+// ]
+// ====================================task_30==========================================================
+// Используя метод every() дополни код так, чтобы:
+// В переменной eachElementInFirstIsEven был результат проверки всех элементов массива firstArray на чётность.
+// В переменной eachElementInFirstIsOdd был результат проверки всех элементов массива firstArray на нечётность.
+// В переменной eachElementInSecondIsEven был результат проверки всех элементов массива secondArray на чётность.
+// В переменной eachElementInSecondIsOdd был результат проверки всех элементов массива secondArray на нечётность.
+// В переменной eachElementInThirdIsEven был результат проверки всех элементов массива thirdArray на чётность.
+// В переменной eachElementInThirdIsOdd был результат проверки всех элементов массива thirdArray на нечётность.
+
+const firstArray = [26, 94, 36, 18];
+const secondArray = [17, 61, 23];
+const thirdArray = [17, 26, 94, 61, 36, 23, 18];
+// Change code below this line
+
+const eachElementInFirstIsEven = firstArray.every(numb => numb % 2 === 0);
+const eachElementInFirstIsOdd = firstArray.every(numb => numb % 2 !== 0);
+
+const eachElementInSecondIsEven = secondArray.every(numb => numb % 2 === 0);
+const eachElementInSecondIsOdd = secondArray.every(numb => numb % 2 !== 0);
+
+const eachElementInThirdIsEven = thirdArray.every(numb => numb % 2 === 0);
+const eachElementInThirdIsOdd = thirdArray.every(numb => numb % 2 !== 0);
+
+// ====================================task_31==========================================================
+
+// Дополни функцию isEveryUserActive(users) так, чтобы она проверяла все ли пользователи сейчас активны
+//   (свойство isActive) и возвращала true или false.
+
+// Change code below this line
+const isEveryUserActive = (users) => {
+  return users.every(({isActive}) => isActive === true) 
+};
+// Change code above this line
+
+// ====================================task_32==========================================================
+// Используя метод some() дополни код так, чтобы:
+// В переменной anyElementInFirstIsEven был результат проверки наличия чётных элементов в массиве firstArray.
+// В переменной anyElementInFirstIsOdd был результат проверки наличия нечётных элементов в массиве firstArray.
+// В переменной anyElementInSecondIsEven был результат проверки наличия чётных элементов в массиве secondArray.
+// В переменной anyElementInSecondIsOdd был результат проверки наличия нечётных элементов в массиве secondArray.
+// В переменной anyElementInThirdIsEven был результат проверки наличия чётных элементов в массиве thirdArray.
+// В переменной anyElementInThirdIsOdd был результат проверки наличия нечётных элементов в массиве thirdArray.
+
+// const firstArray = [26, 94, 36, 18];
+// const secondArray = [17, 61, 23];
+// const thirdArray = [17, 26, 94, 61, 36, 23, 18];
+// // Change below this line
+
+// const anyElementInFirstIsEven = firstArray.some(number => number % 2 === 0);
+// const anyElementInFirstIsOdd = firstArray.some(number => number % 2 !== 0);
+
+// const anyElementInSecondIsEven = secondArray.some(number => number % 2 === 0);
+// const anyElementInSecondIsOdd = secondArray.some(number => number % 2 !== 0);
+
+// const anyElementInThirdIsEven = thirdArray.some(number => number % 2 === 0);
+// const anyElementInThirdIsOdd = thirdArray.some(number => number % 2 !== 0);
+
+// ====================================task_33==========================================================
+// Дополни функцию isAnyUserActive(users) так, чтобы она проверяла наличие активных пользователей
+//   (свойство isActive) и возвращала true или false.
+
+// Change code below this line
+const isAnyUserActive = users => {
+
+  // return users.some(({ isActive }) => isActive === true);
+  console.log(users.some(({isActive}) => isActive));
+  return users.some(({isActive}) => isActive)
+};
+// Change code above this line
+
+// ====================================task_34==========================================================
+
+// Игровому сервису необходим функционал подсчёта среднего времени проведённого в играх.
+// Дополни код так, чтобы в переменной totalPlayTime получилось общее игровое время из массива playtimes.
+
+const players = {
+  mango: 1270,
+  poly: 468,
+  ajax: 710,
+  kiwi: 244
+};
+const playtimes = Object.values(players); // [1270, 468, 710, 244]
+// Change code below this line
+
+const totalPlayTime = playtimes.reduce((previousValue, number) => previousValue + number);
+console.log(totalPlayTime);
+// Change code above this line
+const averagePlayTime = totalPlayTime / playtimes.length;
+
+// Значение переменной totalPlayTime это число 2692
+// Для перебора массива playtimes используется метод reduce()
+// Объявлена переменная averagePlayTime
+// Значение переменной averagePlayTime это число 673
+
+// ====================================task_35==========================================================
+// Нашему сервису необходимо рассчитать среднее время проведённое в одной игре для каждого игрока,
+//   и получить общую сумму этих времён.Рассчитать время для каждого из игроков, можно 
+//   разделив его время(свойство playtime) на количество игр(свойство gamesPlayed).
+
+const playersI = [
+  { name: "Mango", playtime: 1270, gamesPlayed: 4 },
+  { name: "Poly", playtime: 469, gamesPlayed: 2 },
+  { name: "Ajax", playtime: 690, gamesPlayed: 3 },
+  { name: "Kiwi", playtime: 241, gamesPlayed: 1 },
+];
+// Change code below this line
+
+const totalAveragePlaytimePerGame = playersI.reduce((total, player) => {
+  return total + player.playtime / player.gamesPlayed 
+}, 0);
+
+console.log(totalAveragePlaytimePerGame);
+
+// начение переменной totalAveragePlaytimePerGame это число 1023
+
+// ====================================task_36==========================================================
+// Дополни функцию calculateTotalBalance(users) так, чтобы она считала и возвращала сумму всех
+// средств(свойство balance) которые хранят пользователи из массива users.
+
+// Change code below this line
+const calculateTotalBalance = users => {
+  return users.reduce((total, user) => {
+    return total + user.balance
+  }, 0);
+// this in one string
+  // return users.reduce((total, user) => {return total + user.balance}, 0)
+  
+};
 
 
+// Change code above this line
+
+console.log(calculateTotalBalance([
+  {
+    name: "Moore Hensley",
+    email: "moorehensley@indexia.com",
+    eyeColor: "blue",
+    friends: ["Sharron Pace"],
+    isActive: false,
+    balance: 2811,
+    gender: "male"
+  },
+  {
+    name: "Sharlene Bush",
+    email: "sharlenebush@tubesys.com",
+    eyeColor: "blue",
+    friends: ["Briana Decker", "Sharron Pace"],
+    isActive: true,
+    balance: 3821,
+    gender: "female"
+  },
+  {
+    name: "Ross Vazquez",
+    email: "rossvazquez@xinware.com",
+    eyeColor: "green",
+    friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
+    isActive: false,
+    balance: 3793,
+    gender: "male"
+  },
+  {
+    name: "Elma Head",
+    email: "elmahead@omatom.com",
+    eyeColor: "green",
+    friends: ["Goldie Gentry", "Aisha Tran"],
+    isActive: true,
+    balance: 2278,
+    gender: "female"
+  },
+  {
+    name: "Carey Barr",
+    email: "careybarr@nurali.com",
+    eyeColor: "blue",
+    friends: ["Jordan Sampson", "Eddie Strong"],
+    isActive: true,
+    balance: 3951,
+    gender: "male"
+  },
+  {
+    name: "Blackburn Dotson",
+    email: "blackburndotson@furnigeer.com",
+    eyeColor: "brown",
+    friends: ["Jacklyn Lucas", "Linda Chapman"],
+    isActive: false,
+    balance: 1498,
+    gender: "male"
+  },
+  {
+    name: "Sheree Anthony",
+    email: "shereeanthony@kog.com",
+    eyeColor: "brown",
+    friends: ["Goldie Gentry", "Briana Decker"],
+    isActive: true,
+    balance: 2764,
+    gender: "female"
+  }
+]));
+
+// ====================================task_37==========================================================
+// Дополни функцию getTotalFriendCount(users) так, чтобы она считала и возвращала общее
+//  количество друзей(свойство friends) всех пользователей из массива users.
+// Change code below this line
+const getTotalFriendCount = users => {
+  return users.reduce((total, user) => { return total + user.friends.length }, 0)
+};
+// Change code above this line
+
+console.log(getTotalFriendCount([
+  {
+    name: "Moore Hensley",
+    email: "moorehensley@indexia.com",
+    eyeColor: "blue",
+    friends: ["Sharron Pace"],
+    isActive: false,
+    balance: 2811,
+    gender: "male"
+  },
+  {
+    name: "Sharlene Bush",
+    email: "sharlenebush@tubesys.com",
+    eyeColor: "blue",
+    friends: ["Briana Decker", "Sharron Pace"],
+    isActive: true,
+    balance: 3821,
+    gender: "female"
+  },
+  {
+    name: "Ross Vazquez",
+    email: "rossvazquez@xinware.com",
+    eyeColor: "green",
+    friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
+    isActive: false,
+    balance: 3793,
+    gender: "male"
+  },
+  {
+    name: "Elma Head",
+    email: "elmahead@omatom.com",
+    eyeColor: "green",
+    friends: ["Goldie Gentry", "Aisha Tran"],
+    isActive: true,
+    balance: 2278,
+    gender: "female"
+  },
+  {
+    name: "Carey Barr",
+    email: "careybarr@nurali.com",
+    eyeColor: "blue",
+    friends: ["Jordan Sampson", "Eddie Strong"],
+    isActive: true,
+    balance: 3951,
+    gender: "male"
+  },
+  {
+    name: "Blackburn Dotson",
+    email: "blackburndotson@furnigeer.com",
+    eyeColor: "brown",
+    friends: ["Jacklyn Lucas", "Linda Chapman"],
+    isActive: false,
+    balance: 1498,
+    gender: "male"
+  },
+  {
+    name: "Sheree Anthony",
+    email: "shereeanthony@kog.com",
+    eyeColor: "brown",
+    friends: ["Goldie Gentry", "Briana Decker"],
+    isActive: true,
+    balance: 2764,
+    gender: "female"
+  }
+]));
+
+// ====================================task_38==========================================================
+// Дополни код так, чтобы в переменной ascendingReleaseDates получилась отсортированная по возрастанию
+//  копия массива releaseDates, а в переменной alphabeticalAuthors копия массива имён авторов 
+//  authors отсортированная в по алфавиту.
+
+const releaseDates = [2016, 1967, 2008, 1984, 1973, 2012, 1997];
+const authors = [
+  "Tanith Lee",
+  "Bernard Cornwell",
+  "Robert Sheckley",
+  "Fyodor Dostoevsky",
+];
+// Change code below this line
+
+const ascendingReleaseDates = releaseDates;
+
+const alphabeticalAuthors = authors;
+
+// Объявлена переменная releaseDates
+// Значение переменной releaseDates это массив [2016, 1967, 2008, 1984, 1973, 2012, 1997]
+// Объявлена переменная authors
+// Значение переменной authors это массив ["Tanith Lee", "Bernard Cornwell", "Robert Sheckley", "Fyodor Dostoevsky"]
+// Объявлена переменная ascendingReleaseDates
+// Значение переменной ascendingReleaseDates это массив [1967, 1973, 1984, 1997, 2008, 2012, 2016]
+// Объявлена переменная alphabeticalAuthors
+// Значение переменной alphabeticalAuthors это массив ["Bernard Cornwell", "Tanith Lee", "Robert Sheckley", "Fyodor Dostoevsky"]
+// Использован метод sort()
