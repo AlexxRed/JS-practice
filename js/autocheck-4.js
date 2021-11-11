@@ -1144,9 +1144,9 @@ const authors = [
 ];
 // Change code below this line
 
-const ascendingReleaseDates = releaseDates;
+const ascendingReleaseDates = [...releaseDates].sort();
 
-const alphabeticalAuthors = authors;
+const alphabeticalAuthors = [...authors].sort();
 
 // Объявлена переменная releaseDates
 // Значение переменной releaseDates это массив [2016, 1967, 2008, 1984, 1973, 2012, 1997]
@@ -1157,3 +1157,245 @@ const alphabeticalAuthors = authors;
 // Объявлена переменная alphabeticalAuthors
 // Значение переменной alphabeticalAuthors это массив ["Bernard Cornwell", "Tanith Lee", "Robert Sheckley", "Fyodor Dostoevsky"]
 // Использован метод sort()
+
+// ====================================task_39==========================================================
+// Онлайн бибилиотеке необходимо отображать книги сортированные по дате издания, по её возрастанию или убыванию.
+//  Дополни код так, чтобы в переменной ascendingReleaseDates получилась отсортированная по возрастанию 
+//  копия массива releaseDates, а в переменной descendingReleaseDates копия отсортированная по убыванию.
+
+const releaseDatesI = [2016, 1967, 2008, 1984, 1973, 2012, 1997];
+// Change code below this line
+
+const ascendingReleaseDatesI = [...releaseDatesI].sort((a,b) => a - b);
+
+const descendingReleaseDates = [...releaseDatesI].sort((a, b) => b - a);
+
+// ====================================task_40==========================================================
+// Онлайн бибилиотеке необходимо отображать книги отсортированные по автору, в алфавитном и 
+// обратном алфавитном порядке.Дополни код так, чтобы в переменной authorsInAlphabetOrder 
+// получилась отсортированная по алфавиту копия массива authors, а в переменной authorsInReversedOrder 
+// копия отсортированная в обратном алфавитном порядке.
+const authorsI = [
+  "Tanith Lee",
+  "Bernard Cornwell",
+  "Robert Sheckley",
+  "Fyodor Dostoevsky",
+  "Howard Lovecraft",
+];
+// Change code below this line
+
+const authorsInAlphabetOrder = [...authorsI].sort((a,b) => a.localeCompare(b));
+
+const authorsInReversedOrder = [...authorsI].sort((a, b) => b.localeCompare(a));
+
+// ====================================task_41==========================================================
+// Дополни код так, чтобы:
+// В переменной sortedByAuthorName получился массив книг отсортированный по имени автора в алфавитном порядке.
+// В переменной sortedByReversedAuthorName получился массив книг отсортированный по имени автора в обратном алфавитном порядке.
+// В переменной sortedByAscendingRating получился массив книг отсортированный по возрастанию рейтинга.
+// В переменной sortedByDescentingRating получился массив книг отсортированный по убыванию рейтинга.
+const booksVIII = [
+  {
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    rating: 8.38,
+  },
+  {
+    title: "Beside Still Waters",
+    author: "Robert Sheckley",
+    rating: 8.51,
+  },
+  {
+    title: "The Dream of a Ridiculous Man",
+    author: "Fyodor Dostoevsky",
+    rating: 7.75,
+  },
+  { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
+  { title: "Enemy of God", author: "Bernard Cornwell", rating: 8.67 },
+];
+// Change code below this line
+
+const sortedByAuthorName = [...booksVIII].sort((firstBook, secondBook) => firstBook.author.localeCompare(secondBook.author));
+
+const sortedByReversedAuthorName = [...booksVIII].sort((firstBook, secondBook) => secondBook.author.localeCompare(firstBook.author));
+
+const sortedByAscendingRating = [...booksVIII].sort((firstBook, secondBook) => firstBook.rating - secondBook.rating);
+
+const sortedByDescentingRating = [...booksVIII].sort((firstBook, secondBook) => secondBook.rating - firstBook.rating);
+
+// ====================================task_42==========================================================
+// Дополни функцию sortByAscendingBalance(users) так, чтобы она возвращала массив пользователей 
+// отсортированный по возрастанию их баланса(свойство balance).
+// Change code below this line
+const sortByAscendingBalance = users => {
+const sortedByBalance = [...users].sort((firstUser, secondUser) => firstUser.balance - secondUser.balance);
+  return sortedByBalance;
+};
+// Change code above this line
+
+// ====================================task_43==========================================================
+
+// Дополни функцию sortByDescendingFriendCount(users) так, чтобы она возвращала массив пользователей 
+// отсортированный по убыванию количества их друзей(свойство friends).
+
+// Change code below this line
+const sortByDescendingFriendCount = users => {
+  const sortedByFriends = [...users].sort((firstUser, secondUser) => secondUser.friends.length - firstUser.friends.length);
+  return sortedByFriends;
+};
+// Change code above this line
+
+// ====================================task_44==========================================================
+// Дополни функцию sortByName(users) так, чтобы она возвращала массив пользователей отсортированный
+//  по их имени(свойство name) в алфавитном порядке.
+
+// Change code below this line
+const sortByName = users => {
+  const sortByNames = [...users].sort((firstUser, secondUser) => firstUser.name.localeCompare(secondUser.name));
+  return sortByNames
+};
+// Change code above this line
+
+// ====================================task_45==========================================================
+// Дополни код так, чтобы в переменной names получился массив имён авторов в алфавитном порядке, рейтинг 
+// книг которых больше значения переменной MIN_BOOK_RATING.
+
+const booksX = [
+  {
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    rating: 8.38,
+  },
+  {
+    title: "Beside Still Waters",
+    author: "Robert Sheckley",
+    rating: 8.51,
+  },
+  {
+    title: "The Dream of a Ridiculous Man",
+    author: "Fyodor Dostoevsky",
+    rating: 7.75,
+  },
+  { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
+  {
+    title: "The Dreams in the Witch House",
+    author: "Howard Lovecraft",
+    rating: 8.67,
+  },
+];
+const MIN_BOOK_RATING = 8;
+// Change code below this line
+
+// const names = booksX.map(book => book.author).
+//                     filter(author => author.rating > MIN_BOOK_RATING).
+//                     sort((firstAuthor, secondAuthor) => firstAuthor.localeCompare(secondAuthor)) ;
+
+const names = booksX.filter(book => book.rating > MIN_BOOK_RATING).
+  map(book => book.author).
+  sort((firstAuthor, secondAuthor) => firstAuthor.localeCompare(secondAuthor)) ;
+
+console.log(names);
+
+// ====================================task_46==========================================================
+// Дополни функцию getNamesSortedByFriendCount(users) так, чтобы она возвращала массив имён пользователей
+//  отсортированный по возрастанию количества их друзей(свойство friends).
+
+// Change code below this line
+const getNamesSortedByFriendCount = users => {
+  return sortedNames = [...users].sort((firstUser, secondUser) => firstUser.friends.length - secondUser.friends.length).
+    map(user => user.name);
+};
+// Change code above this line
+
+// ====================================task_47==========================================================
+// Дополни функцию getSortedFriends(users) так, чтобы она возвращала массив уникальных имён друзей
+// (свойство friends) отсортированный по алфавиту.
+
+// Change code below this line
+const getSortedFriends = users => {
+  return sortedFriends = users.flatMap(user => user.friends).
+    filter((friend, idx, array) => array.indexOf(friend) === idx).
+    sort((firstName, secondName) => firstName.localeCompare(secondName));
+};
+// Change code above this line
+// ====================================task_48==========================================================
+// Дополни функцию getTotalBalanceByGender(users, gender) так, чтобы она возвращала общий баланс
+// пользователей(свойство balance), пол которых(свойство gender) совпадает со значением параметра gender.
+
+// Change code below this line
+const getTotalBalanceByGender = (users, gender) => {
+  return users.filter(user => user.gender === gender).
+    map(user => user.balance).
+    reduce((total, value) => {
+    return total + value
+  }, 0);
+  
+  
+};
+// Change code above this line
+
+console.log(getTotalBalanceByGender([
+  {
+    name: "Moore Hensley",
+    email: "moorehensley@indexia.com",
+    eyeColor: "blue",
+    friends: ["Sharron Pace"],
+    isActive: false,
+    balance: 2811,
+    gender: "male"
+  },
+  {
+    name: "Sharlene Bush",
+    email: "sharlenebush@tubesys.com",
+    eyeColor: "blue",
+    friends: ["Briana Decker", "Sharron Pace"],
+    isActive: true,
+    balance: 3821,
+    gender: "female"
+  },
+  {
+    name: "Ross Vazquez",
+    email: "rossvazquez@xinware.com",
+    eyeColor: "green",
+    friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
+    isActive: false,
+    balance: 3793,
+    gender: "male"
+  },
+  {
+    name: "Elma Head",
+    email: "elmahead@omatom.com",
+    eyeColor: "green",
+    friends: ["Goldie Gentry", "Aisha Tran"],
+    isActive: true,
+    balance: 2278,
+    gender: "female"
+  },
+  {
+    name: "Carey Barr",
+    email: "careybarr@nurali.com",
+    eyeColor: "blue",
+    friends: ["Jordan Sampson", "Eddie Strong", "Adrian Cross"],
+    isActive: true,
+    balance: 3951,
+    gender: "male"
+  },
+  {
+    name: "Blackburn Dotson",
+    email: "blackburndotson@furnigeer.com",
+    eyeColor: "brown",
+    friends: ["Jacklyn Lucas", "Linda Chapman", "Adrian Cross", "Solomon Fokes"],
+    isActive: false,
+    balance: 1498,
+    gender: "male"
+  },
+  {
+    name: "Sheree Anthony",
+    email: "shereeanthony@kog.com",
+    eyeColor: "brown",
+    friends: ["Goldie Gentry", "Briana Decker"],
+    isActive: true,
+    balance: 2764,
+    gender: "female"
+  }
+], "female"))
