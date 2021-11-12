@@ -127,14 +127,14 @@ const ancestor = {
 };
 // Change code below this line
 
-const parent = Object.create(ancestor);
-parent.name = "Stacey";
-parent.surname = "Moore";
-parent.age = 54;
+const parentI = Object.create(ancestor);
+parentI.name = "Stacey";
+parentI.surname = "Moore";
+parentI.age = 54;
 
-const child = Object.create(parent);
-child.name = "Jason";
-child.age = 27;
+const childI = Object.create(parentI);
+childI.name = "Jason";
+childI.age = 27;
 
 // Change code above this line
 
@@ -191,7 +191,7 @@ new CarI({ brand: "Nissan", model: "Murano", price: 31700 }) //получитс�
 //     changePrice(newPrice) - обновляет значение свойства price у объекта который его
 //  будет вызывать на newPrice.
 
-class Car {
+class CarII {
   constructor({ brand, model, price }) {
     this.brand = brand;
     this.model = model;
@@ -222,10 +222,23 @@ changePrice(newPrice) {
 // Под комментарием мы добавили инициализацию экземпляра и вызовы методов в той
 // последовательности, в которой твой код будут проверять тесты.Пожалуйста ничего там не меняй.
 
+class Storage {
+  constructor( items ) {
+    this.items = items
+  }
 
+  getItems() {
+    return this.items
+  };
 
+  addItem(newItem) {
+    return this.items.push(newItem)
+  };
 
-
+  removeItem(itemToRemove) {
+    return this.items.splice(this.items.indexOf(itemToRemove), 1)
+  }
+};
 
 // Change code above this line
 const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
@@ -248,3 +261,70 @@ console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
 storage.getItems()//, сразу после инциализации экземпляра, возвращает массив ["Nanitoids", "Prolonger", "Antigravitator"]
 storage.getItems()//, после вызова storage.addItem("Droid"), возвращает массив ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
 storage.getItems()//, после вызова storage.removeItem("Prolonger"), возвращает массив ["Nanitoids", "Antigravitator", "Droid"]
+
+// ====================================task_11==========================================================
+
+// Напиши класс StringBuilder, который принимает один параметр initialValue - произвольную строку,
+//   которая записывается на создаваемый объект в свойство value.
+// Объяви следующие методы класса:
+// getValue() - возвращает текущее значение свойства value.
+//   padEnd(str) - получает парметр str(строку) и добавляет её в конец значения свойства 
+// value объекта который вызывает этот метод.
+//   padStart(str) - получает парметр str(строку) и добавляет её в начало значения свойства 
+// value объекта который вызывает этот метод.
+//   padBoth(str) - получает парметр str(строку) и добавляет её в начало и в конец значения
+//  свойства value объекта который вызывает этот метод.
+// Под комментарием мы добавили инициализацию экземпляра и вызовы методов в той
+// последовательности, в которой твой код будут проверять тесты.Пожалуйста ничего там не меняй.
+
+const stringsw = "lux"
+console.log(stringsw.padStart(stringsw.length + 1, "k").padEnd(stringsw.length + 2, '9'));
+
+class StringBuilder {
+  constructor(value) {
+    this.value = value
+  };
+
+  getValue() {
+    return this.value
+  };
+  padStart(str) {
+    this.value = this.value.padStart(this.value.length + str.length, str);
+  };
+  padEnd(str) {
+    this.value = this.value.padEnd(this.value.length + str.length, str);
+  };
+  
+  padBoth(str) {
+  this.value = this.value.padStart(this.value.length + str.length, str).padEnd(this.value.length + str.length + str.length, str)
+  }
+};
+
+// Change code above this line
+const builder = new StringBuilder(".");
+console.log(builder.getValue()); // "."
+builder.padStart("^");
+console.log(builder.getValue()); // "^."
+builder.padEnd("^");
+console.log(builder.getValue()); // "^.^"
+builder.padBoth("=");
+console.log(builder.getValue()); // "=^.^="
+
+// ====================================task_12==========================================================
+
+// Выполни рефакторинг класса Car так, чтобы свойство brand было приватным и добавь два метода
+//  для публичного интерфейса, для чтения и изменения этого свойства.
+// getBrand() - возвращает значение приватного свойства brand.
+// changeBrand(newBrand) - изменяет значение приватного свойства brand на newBrand.
+
+class Car {
+  // Change code below this line
+
+  constructor({ brand, model, price }) {
+    this.brand = brand;
+    this.model = model;
+    this.price = price;
+  }
+
+  // Change code above this line
+}
