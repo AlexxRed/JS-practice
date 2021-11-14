@@ -504,3 +504,82 @@ class CarIIII {
 // В классе Car объявлен сеттер price
 
 // ====================================task_16==========================================================
+// Выполни рефакторинг класса Car.Добавь публичное статическое свойство MAX_PRICE со 
+// значением 50000 - максимально допустимая цена автомобиля.
+// Добавь сеттеру price проверку передаваемого значения параметра newPrice.
+//  Если оно больше чем MAX_PRICE, сеттер ничего не делает, а если меньше или равно,
+//   то перезаписывает цену автомобиля.
+
+class CarV {
+  // Change code below this line
+  
+  static MAX_PRICE =  50000
+  
+ 
+  
+  #price;
+
+  constructor({ price }) {
+    this.#price = price;
+  }
+
+  get price() {
+    return this.#price;
+  }
+
+  set price(newPrice) {
+    if(newPrice < CarV.MAX_PRICE){
+    this.#price = newPrice;
+    };
+    
+  }
+  // Change code above this line
+}
+
+const audi = new CarV({ price: 35000 });
+console.log(audi.price); // 35000
+
+audi.price = 49000;
+console.log(audi.price); // 49000
+
+audi.price = 51000;
+console.log(audi.price); // 49000
+
+// Объявлен класс Car
+// У класса Car есть статическое свойство MAX_PRICE
+// Значение статического свойства MAX_PRICE это число 50000
+// У экземпляра нет свойства MAX_PRICE
+// В классе Car объявлен геттер price
+// В классе Car объявлен сеттер price
+// Вызов сеттера price у экземпляра класса, со значением аргумента меньше чем значение MAX_PRICE, изменяет свойство #price
+// Вызов сеттера price у экземпляра класса, со значением аргумента больше чем значение MAX_PRICE, не изменяет свойство #price
+
+// ====================================task_17==========================================================
+// Добавь классу Car публичный статический метод checkPrice(price), принимающий цену автомобиля. 
+// Метод должен сравнить значения параметра price и приватного статического свойства MAX_PRICE.
+// Если цена автомобиля превышает максимальную, метод должен вернуть строку "Error! Price exceeds the maximum".
+// В противном случае метод должен вернуть строку "Success! Price is within acceptable limits".
+// Под объявлением класса мы добавили инициализацию экземпляра и вызовы методов,
+//   чтобы показать как будет использоваться метод checkPrice(price).
+class Car {
+  static #MAX_PRICE = 50000;
+  // Change code below this line
+
+  // Change code above this line
+  constructor({ price }) {
+    this.price = price;
+  }
+}
+
+const audi = new Car({ price: 36000 });
+const bmw = new Car({ price: 64000 });
+
+console.log(Car.checkPrice(audi.price)); // "Success! Price is within acceptable limits"
+console.log(Car.checkPrice(bmw.price)); // "Error! Price exceeds the maximum"
+
+//Объявлен класс Car
+//У класса Car есть статический метод checkPrice(price)
+Car.checkPrice(36000)// возвращает строку "Success! Price is within acceptable limits"
+Car.checkPrice(18000) //возвращает строку "Success! Price is within acceptable limits"
+Car.checkPrice(64000) //возвращает строку "Error! Price exceeds the maximum"
+Car.checkPrice(57000) //возвращает строку "Error! Price exceeds the maximum"
