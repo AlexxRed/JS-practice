@@ -561,25 +561,195 @@ console.log(audi.price); // 49000
 // В противном случае метод должен вернуть строку "Success! Price is within acceptable limits".
 // Под объявлением класса мы добавили инициализацию экземпляра и вызовы методов,
 //   чтобы показать как будет использоваться метод checkPrice(price).
-class Car {
+class CarVI {
   static #MAX_PRICE = 50000;
   // Change code below this line
 
+   static checkPrice(price) {
+   if(CarVI.#MAX_PRICE < price) {
+   return "Error! Price exceeds the maximum"
+   } 
+     return "Success! Price is within acceptable limits"
+   
+     
+   };
   // Change code above this line
   constructor({ price }) {
     this.price = price;
   }
 }
 
-const audi = new Car({ price: 36000 });
-const bmw = new Car({ price: 64000 });
+const audiI = new CarVI({ price: 36000 });
+const bmw = new CarVI({ price: 64000 });
 
-console.log(Car.checkPrice(audi.price)); // "Success! Price is within acceptable limits"
-console.log(Car.checkPrice(bmw.price)); // "Error! Price exceeds the maximum"
+console.log(CarVI.checkPrice(audiI.price)); // "Success! Price is within acceptable limits"
+console.log(CarVI.checkPrice(bmw.price)); // "Error! Price exceeds the maximum"
 
 //Объявлен класс Car
 //У класса Car есть статический метод checkPrice(price)
-Car.checkPrice(36000)// возвращает строку "Success! Price is within acceptable limits"
-Car.checkPrice(18000) //возвращает строку "Success! Price is within acceptable limits"
-Car.checkPrice(64000) //возвращает строку "Error! Price exceeds the maximum"
-Car.checkPrice(57000) //возвращает строку "Error! Price exceeds the maximum"
+CarVI.checkPrice(36000)// возвращает строку "Success! Price is within acceptable limits"
+CarVI.checkPrice(18000) //возвращает строку "Success! Price is within acceptable limits"
+CarVI.checkPrice(64000) //возвращает строку "Error! Price exceeds the maximum"
+CarVI.checkPrice(57000) //возвращает строку "Error! Price exceeds the maximum"
+
+// ====================================task_18==========================================================
+// В приложении нужен администратор с возможностью добавлять почты пользователей в чёрный список.
+// Объяви класс Admin, который наследует от класса User
+// Добавь классу Admin публичное статическое свойство AccessLevel(уровень доступа),
+//   значение которого это объект { BASIC: "basic", SUPERUSER: "superuser" }
+
+class User {
+  constructor(email) {
+    this.email = email;
+  };
+
+  get email() {
+    return this.email;
+  };
+
+  set email(newEmail) {
+    this.email = newEmail;
+  };
+};
+// Change code below this line
+
+class Admin extends User {
+  
+  static AccessLevel = {
+    BASIC: "basic",
+    SUPERUSER: "superuser"
+  };
+};
+
+// Объявлен класс Admin
+// Класс Admin наследует от класса User
+// У класса Admin есть публичное статическое свойство AccessLevel
+// Обращение к Admin.AccessLevel.BASIC возвращает строку "basic"
+// Обращение к Admin.AccessLevel.SUPERUSER возвращает строку "superuser"
+
+// ====================================task_19==========================================================
+
+// Добавь классу Admin метод constructor, который принимает один параметр - объект настроек с двумя 
+// свойствами email и accessLevel.Добавь классу Admin публичное свойство accessLevel,
+//   значение которого будет передаваться при вызове конструктора.
+// Чтобы показать как будет использоваться класс Admin мы добавили инициализацию экземпляра
+//  под объявлением класса.
+
+class UserII {
+  email;
+
+  constructor(email) {
+    this.email = email;
+  }
+
+  get email() {
+    return this.email;
+  }
+
+  set email(newEmail) {
+    this.email = newEmail;
+  }
+}
+
+class AdminII extends UserII {
+  // Change code below this line
+
+  constructor ({email, accessLevel}) {
+  super(email);
+  this.accessLevel = accessLevel
+  };
+  static AccessLevel = {
+    BASIC: "basic",
+    SUPERUSER: "superuser",
+  };
+
+  // Change code above this line
+}
+
+const mango = new AdminII({
+  email: "mango@mail.com",
+  accessLevel: Admin.AccessLevel.SUPERUSER,
+});
+
+console.log(mango.email); // "mango@mail.com"
+console.log(mango.accessLevel); // "superuser"
+
+// Объявлен класс Admin
+// Класс Admin наследует от класса User
+// У класса Admin есть публичное статическое свойство AccessLevel
+// У класса Admin есть метод constructor с параметром в виде объекта {email, accessLevel}
+// У класса Admin в конструкторе для свойства email используется обращение к конструктору родительского класса
+// Обращение к Admin.AccessLevel.BASIC возвращает строку "basic"
+// Обращение к Admin.AccessLevel.SUPERUSER возвращает строку "superuser"
+// ====================================task_20==========================================================
+// Добавь классу Admin следующие свойства и методы.
+// Публичное свойство blacklistedEmails для хранения чёрного списка почтовых адресов пользователей.
+//  Значение по умолчанию это пустой массив.
+// Публичный метод blacklist(email) для добавления почты в чёрный список.Метод должен добавлять значение 
+// параметра email в массив хранящийся в свойстве blacklistedEmails.
+// Публичный метод isBlacklisted(email) для проверки почты в чёрном списке.Метод должен проверять наличие
+//  значения параметра email в массиве хранящемся в свойстве blacklistedEmails и возвращать true или false.
+// После объявления класса мы добавили инициализацию экземпляра и вызовы методов в той последовательности,
+//   в которой твой код будут проверять тесты.Пожалуйста ничего там не меняй.
+
+class UserIII {
+  email;
+
+  constructor(email) {
+    this.email = email;
+  }
+
+  get email() {
+    return this.email;
+  }
+
+  set email(newEmail) {
+    this.email = newEmail;
+  }
+}
+class AdminIII extends UserIII {
+  // Change code below this line
+  // blacklistedEmails = []; // it is work too
+  
+  static AccessLevel = {
+    BASIC: "basic",
+    SUPERUSER: "superuser",
+  };
+
+  constructor({ email, accessLevel, blacklistedEmails = [] }) {
+    super(email);
+    this.accessLevel = accessLevel;
+    this.blacklistedEmails = blacklistedEmails;
+  }
+  
+  
+  
+  blacklist(email) {
+    
+  this.blacklistedEmails.push(email)
+  };
+  
+  isBlacklisted(email) {
+  return this.blacklistedEmails.includes(email)
+  };
+
+  // Change code above this line
+}
+
+const mangoIII = new AdminIII({
+  email: "mango@mail.com",
+  accessLevel: Admin.AccessLevel.SUPERUSER,
+});
+
+console.log(mangoIII.email); // "mango@mail.com"
+console.log(mangoIII.accessLevel); // "superuser"
+
+mangoIII.blacklist("poly@mail.com");
+console.log(mangoIII.blacklistedEmails); // ["poly@mail.com"]
+console.log(mangoIII.isBlacklisted("mango@mail.com")); // false
+console.log(mangoIII.isBlacklisted("poly@mail.com")); // true
+
+// ================================================================================================
+// ================================================================================================
+// ================================================================================================
+
